@@ -31,8 +31,8 @@ function setupFooterYear() {
 }
 
 (async () => {
-    await injectPartial("#header-slot", "partials/header.html");
-    await injectPartial("#footer-slot", "partials/footer.html");
+    await injectPartial("#header-slot", "/partials/header.html");
+    await injectPartial("#footer-slot", "/partials/footer.html");
     setupNav();
     setupFooterYear();
 })();
