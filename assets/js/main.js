@@ -1,8 +1,14 @@
 async function injectPartial(selector, url) {
     const el = document.querySelector(selector);
     if (!el) return;
-    const res = await fetch(url);
+
+    // évite les injections multiples
+    if (el.dataset.loaded === "1") return;
+
+    const res = await fetch(url, { cache: "no-store" });
+    if (!res.ok) throw new Error(`Failed to load ${url}: ${res.status}`);
     el.innerHTML = await res.text();
+    el.dataset.loaded = "1";
 }
 
 function setupNav() {
