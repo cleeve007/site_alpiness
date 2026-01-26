@@ -1,0 +1,8 @@
+{
+  "name": "site_alpiness",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "start": "npx serve -s . -l $PORT"
+  }
+}
