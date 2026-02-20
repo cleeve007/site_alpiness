@@ -2,7 +2,7 @@ async function injectPartial(selector, url) {
     const el = document.querySelector(selector);
     if (!el) return;
 
-    // évite les injections multiples
+    // Ã‰vite les injections multiples
     if (el.dataset.loaded === "1") return;
 
     const res = await fetch(url, { cache: "no-store" });
@@ -37,8 +37,8 @@ function setupFooterYear() {
 }
 
 (async () => {
-    await injectPartial("#header-slot", "/partials/header.html");
-    await injectPartial("#footer-slot", "/partials/footer.html");
+    await injectPartial("#header-slot", "partials/header.html");
+    await injectPartial("#footer-slot", "partials/footer.html");
     setupNav();
     setupFooterYear();
 })();

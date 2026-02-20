@@ -158,7 +158,7 @@ main {
     padding: 28px 0 70px;
 }
 
-/* Hero (sans image pour l'instant : beau quand même) */
+/* Hero (sans image pour l'instant : beau quand mÃªme) */
 .hero {
     border: 1px solid var(--line);
     border-radius: var(--radius);
@@ -279,7 +279,7 @@ main {
         color: #1c2b22;
     }
 
-/* Footer (plus léger et plus clean) */
+/* Footer (plus lÃ©ger et plus clean) */
 .site-footer {
     border-top: 1px solid var(--line);
     background: rgba(255,255,255,.60);
@@ -368,13 +368,13 @@ main {
     align-items: center;
     border-radius: var(--radius);
     overflow: hidden;
-    background-image: url("/assets/img/hero.jpg");
+    background-image: url("../img/hero.jpg");
     background-size: cover;
     background-position: center;
     box-shadow: var(--shadow);
 }
 
-/* Overlay pour lisibilité */
+/* Overlay pour lisibilitÃ© */
 .hero-overlay {
     position: absolute;
     inset: 0;
