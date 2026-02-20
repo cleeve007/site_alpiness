@@ -203,6 +203,37 @@ main {
         font-size: 13px;
     }
 
+/* Text panels */
+.panel {
+    border: 1px solid var(--line);
+    background: var(--panel);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius);
+    box-shadow: 0 10px 22px rgba(16,24,18,.08);
+    padding: 16px;
+}
+
+.panel h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+    letter-spacing: -.2px;
+}
+
+.panel p {
+    margin: 0 0 10px;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.panel p:last-child {
+    margin-bottom: 0;
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 14px;
+}
+
 /* Cards */
 .grid {
     display: grid;
