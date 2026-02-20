@@ -31,7 +31,7 @@ body {
 
 /* Helpers */
 .container {
-    width: min(1120px, calc(100% - 40px));
+    width: min(1240px, calc(100% - 64px));
     margin: 0 auto;
 }
 
@@ -155,7 +155,7 @@ a {
 
 /* Main */
 main {
-    padding: 28px 0 70px;
+    padding: 44px 0 90px;
 }
 
 /* Hero (sans image pour l'instant : beau quand même) */
@@ -164,7 +164,11 @@ main {
     border-radius: var(--radius);
     background: linear-gradient(135deg, rgba(47,111,85,.12), rgba(216,137,58,.10));
     box-shadow: var(--shadow);
-    padding: 34px;
+    padding: 56px;
+}
+
+@media (max-width: 720px) {
+    .hero { padding: 28px; }
 }
 
     .hero h1 {
@@ -182,7 +186,7 @@ main {
 
 /* Sections */
 .section {
-    margin-top: 22px;
+    margin-top: 36px;
 }
 
 .section-title {
@@ -190,12 +194,12 @@ main {
     align-items: baseline;
     justify-content: space-between;
     gap: 12px;
-    margin: 0 0 12px;
+    margin: 0 0 14px;
 }
 
     .section-title h2 {
         margin: 0;
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .section-title span {
@@ -210,7 +214,7 @@ main {
     backdrop-filter: blur(10px);
     border-radius: var(--radius);
     box-shadow: 0 10px 22px rgba(16,24,18,.08);
-    padding: 16px;
+    padding: 22px;
 }
 
 .panel h3 {
@@ -237,7 +241,7 @@ main {
 /* Cards */
 .grid {
     display: grid;
-    gap: 14px;
+    gap: 18px;
     grid-template-columns: repeat(3, 1fr);
 }
 
@@ -257,7 +261,7 @@ main {
     }
 
 .card-media {
-    height: 140px;
+    height: 170px;
     background: linear-gradient(135deg, rgba(47,111,85,.18), rgba(216,137,58,.14));
     border-bottom: 1px solid var(--line);
 }
