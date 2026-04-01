@@ -110,6 +110,62 @@ a {
     border: 1px solid rgba(216,137,58,.30);
 }
 
+.nav-linkedin {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,.65);
+}
+
+.nav-linkedin:hover {
+    background: rgba(47,111,85,.10);
+}
+
+.nav-linkedin img {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+.pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,.65);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.pricing-table th,
+.pricing-table td {
+    padding: 12px 12px;
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+    font-size: 14px;
+}
+
+.pricing-table th {
+    font-weight: 800;
+}
+
+.pricing-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.warning {
+    border: 1px solid rgba(216,137,58,.35);
+    background: rgba(216,137,58,.12);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    font-weight: 700;
+}
+
+
 /* Dropdown */
 .has-submenu {
     position: relative;
