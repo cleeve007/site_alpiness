@@ -114,9 +114,9 @@ a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    padding: 8px;
+    width: 44px;
+    height: 44px;
+    padding: 6px;
     border-radius: 14px;
     border: 0;
     background: transparent;
@@ -127,8 +127,8 @@ a {
 }
 
 .nav-linkedin img {
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     display: block;
 }
 
@@ -147,6 +147,10 @@ a {
     border-bottom: 1px solid var(--line);
     text-align: left;
     font-size: 14px;
+}
+
+.pricing-table tbody td:not(:first-child) {
+    text-align: center;
 }
 
 .pricing-table th {
