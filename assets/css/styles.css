@@ -153,6 +153,14 @@ a {
     font-weight: 800;
 }
 
+.pricing-table thead th {
+    text-align: center;
+}
+
+.pricing-table thead th[rowspan] {
+    text-align: left;
+}
+
 .pricing-table tbody tr:last-child td {
     border-bottom: 0;
 }
