@@ -498,6 +498,18 @@ main {
     background-image: url("../img/hebergement-hero-terrasse.png");
 }
 
+.hero-image.se-faire-du-bien-hero {
+    background-image: url("../img/se-faire-du-bien-hero.png");
+}
+
+.hero-image.decouverte-du-patrimoine-hero {
+    background-image: url("../img/decouverte-du-patrimoine-hero.png");
+}
+
+.hero-image.preparer-un-objectif-hero {
+    background-image: url("../img/preparer-un-objectif-hero.png");
+}
+
 /* Overlay pour lisibilité */
 .hero-overlay {
     position: absolute;
