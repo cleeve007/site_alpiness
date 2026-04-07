@@ -494,6 +494,10 @@ main {
     box-shadow: var(--shadow);
 }
 
+.hero-image.hebergement-hero {
+    background-image: url("../img/hebergement-hero.png");
+}
+
 /* Overlay pour lisibilité */
 .hero-overlay {
     position: absolute;
