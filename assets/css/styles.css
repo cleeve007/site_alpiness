@@ -510,6 +510,10 @@ main {
     background-image: url("../img/preparer-un-objectif-hero.png");
 }
 
+.hero-image.vivre-une-aventure-hero {
+    background-image: url("../img/gallery/photo-rando-a-pied.jpg");
+}
+
 /* Overlay pour lisibilité */
 .hero-overlay {
     position: absolute;
