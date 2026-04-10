@@ -12,6 +12,13 @@
 
     <main class="container">
         <section class="hero hero-image">
+            <button class="proposals-badge" id="open-proposals" type="button" aria-label="Mes dernières propositions">
+                <div class="runner" aria-hidden="true">
+                    <img src="assets/img/propositions/randonneur.png" alt="">
+                </div>
+                <div class="label">Mes dernières propositions</div>
+            </button>
+
             <div class="hero-overlay"></div>
 
             <div class="hero-content">
@@ -207,6 +214,27 @@
             </div>
         </section>
     </main>
+
+    <div class="modal" id="proposals-modal" aria-hidden="true">
+        <div class="modal-backdrop" data-close="1"></div>
+        <div class="modal-panel" role="dialog" aria-modal="true" aria-label="Mes dernières propositions">
+            <div class="modal-header">
+                <div class="modal-title">Mes dernières propositions</div>
+                <button class="modal-close" type="button" data-close="1">Fermer</button>
+            </div>
+            <div class="modal-body">
+                <div class="proposal-hero">
+                    <img src="assets/img/propositions/randonneur.png" alt="Randonneur en montagne">
+                    <div>
+                        <p style="margin:0 0 8px"><strong>Pour les 14–17 ans.</strong> Trek sauvage sur les hauteurs de Serre-Ponçon — colo à Les Orres — UCPA</p>
+                        <p style="margin:0"><a href="https://www.ucpa.com/sejour/41620-trek-sauvage-sur-les-hauteurs-de-serre-poncon-circuit/colos" target="_blank" rel="noopener">Voir la proposition sur UCPA</a></p>
+                    </div>
+                </div>
+
+                <img class="flyer" src="assets/img/propositions/flyer.png" alt="Flyer — Mes dernières propositions">
+            </div>
+        </div>
+    </div>
 
     <div id="footer-slot"></div>
     <script src="assets/js/main.js" defer></script>

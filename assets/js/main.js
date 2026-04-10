@@ -36,9 +36,38 @@ function setupFooterYear() {
     if (y) y.textContent = String(new Date().getFullYear());
 }
 
+function setupProposalsModal() {
+    const openBtn = document.getElementById("open-proposals");
+    const modal = document.getElementById("proposals-modal");
+    if (!openBtn || !modal) return;
+
+    const open = () => {
+        modal.classList.add("open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+    };
+
+    const close = () => {
+        modal.classList.remove("open");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+    };
+
+    openBtn.addEventListener("click", open);
+
+    modal.querySelectorAll("[data-close='1']").forEach((el) => {
+        el.addEventListener("click", close);
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("open")) close();
+    });
+}
+
 (async () => {
     await injectPartial("#header-slot", "partials/header.html");
     await injectPartial("#footer-slot", "partials/footer.html");
     setupNav();
     setupFooterYear();
+    setupProposalsModal();
 })();
