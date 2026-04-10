@@ -218,10 +218,20 @@ a {
     margin-bottom: 8px;
 }
 
+.proposals-badge .runner {
+    width: 100%;
+    height: 60px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    background: rgba(255,255,255,.92);
+}
+
 .proposals-badge .runner video {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
     border-radius: 12px;
 }
@@ -261,6 +271,9 @@ a {
     color: #fff;
     box-shadow: 0 20px 70px rgba(0,0,0,.45);
     overflow: hidden;
+    max-height: calc(100vh - 68px);
+    display: flex;
+    flex-direction: column;
 }
 
 .modal-header {
@@ -293,6 +306,36 @@ a {
     padding: 16px;
     display: grid;
     gap: 14px;
+    overflow: auto;
+}
+
+.proposal-item {
+    border: 1px solid rgba(255,255,255,.10);
+    background: rgba(255,255,255,.06);
+    border-radius: 18px;
+    padding: 14px;
+}
+
+.proposal-item + .proposal-item {
+    margin-top: 12px;
+}
+
+.proposal-meta {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.proposal-meta .tag {
+    font-weight: 900;
+    font-size: 12px;
+    opacity: .9;
+}
+
+.proposal-meta .title {
+    font-weight: 900;
 }
 
 .proposal-hero {
