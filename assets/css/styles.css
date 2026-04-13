@@ -228,7 +228,7 @@ a {
     background: rgba(255, 255, 255);
 }
 
-.proposals-badge .runner video {
+.proposals-badge .runner img {
     width: 100%;
     height: 100%;
     object-fit: contain;
