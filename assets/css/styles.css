@@ -225,7 +225,7 @@ a {
     overflow: hidden;
     border-radius: 12px;
     margin-bottom: 8px;
-    background: rgba(255, 255, 255);
+    background: transparent;
 }
 
 .proposals-badge .runner img {
