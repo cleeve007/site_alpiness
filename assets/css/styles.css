@@ -245,7 +245,7 @@ a {
 
 @keyframes proposals-blink {
     0%, 100% { color: #ffffff; }
-    50% { color: burlywood; }
+    50% { color: #f59527; }
 }
 
 /* Modal / page dans la page */
