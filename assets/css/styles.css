@@ -240,6 +240,12 @@ a {
     font-size: 12px;
     letter-spacing: .2px;
     line-height: 1.2;
+    animation: proposals-blink 1.4s ease-in-out infinite;
+}
+
+@keyframes proposals-blink {
+    0%, 100% { color: #ffffff; }
+    50% { color: burlywood; }
 }
 
 /* Modal / page dans la page */
