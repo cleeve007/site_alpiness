@@ -690,6 +690,10 @@ main {
 }
 
 @media (max-width: 720px) {
+    .header-inner {
+        flex-wrap: wrap;
+    }
+
     .nav-toggle {
         display: inline-flex;
     }
@@ -700,12 +704,20 @@ main {
 
         .nav.open {
             display: block;
+            width: 100%;
         }
 
     .nav-list {
         flex-direction: column;
         align-items: stretch;
-        padding: 10px 0;
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: rgba(255,255,255,.76);
+    }
+
+    .nav-list a {
+        display: block;
     }
 
     .has-submenu {
@@ -746,7 +758,7 @@ main {
 }
 
 .hero-image.hebergement-hero {
-    background-image: url("../img/hebergement-hero-interieur.png");
+    background-image: url("../img/hebergement-hero-terrasse.webp");
 }
 
 .hero-image.se-faire-du-bien-hero {
@@ -754,15 +766,15 @@ main {
 }
 
 .hero-image.decouverte-du-patrimoine-hero {
-    background-image: url("../img/decouverte-du-patrimoine-hero.png");
+    background-image: url("../img/decouverte-du-patrimoine-hero.webp");
 }
 
 .hero-image.preparer-un-objectif-hero {
-    background-image: url("../img/preparer-un-objectif-hero.png");
+    background-image: url("../img/preparer-un-objectif-hero.webp");
 }
 
 .hero-image.vivre-une-aventure-hero {
-    background-image: url("../img/gallery/photo-rando-a-pied.jpg");
+    background-image: url("../img/gallery/photo-rando-a-pied.webp");
 }
 
 /* Overlay pour lisibilité */
@@ -799,6 +811,41 @@ main {
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
+}
+
+/* Galerie du chalet */
+.chalet-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.chalet-gallery figure {
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--panel);
+    box-shadow: 0 10px 22px rgba(16,24,18,.08);
+}
+
+.chalet-gallery img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.chalet-gallery figcaption {
+    padding: 14px 16px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Action de contact toujours accessible sur petit écran */
+.mobile-contact-cta {
+    display: none;
 }
 
 /* Contact */
@@ -877,8 +924,35 @@ main {
     }
 
     .contact-grid,
-    .contact-steps {
+    .contact-steps,
+    .chalet-gallery {
         grid-template-columns: 1fr;
+    }
+
+    main {
+        padding-bottom: 116px;
+    }
+
+    .mobile-contact-cta {
+        position: fixed;
+        right: 16px;
+        bottom: max(16px, env(safe-area-inset-bottom));
+        z-index: 30;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 12px 18px;
+        border: 1px solid rgba(255,255,255,.42);
+        border-radius: 999px;
+        background: #173f2a;
+        color: #fff;
+        box-shadow: 0 12px 28px rgba(16,24,18,.28);
+        font-weight: 800;
+    }
+
+    .is-contact-page .mobile-contact-cta {
+        display: none;
     }
 }
 
