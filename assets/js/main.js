@@ -36,6 +36,14 @@ function setupFooterYear() {
     if (y) y.textContent = String(new Date().getFullYear());
 }
 
+function setupActiveNav() {
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+    document.querySelectorAll(".nav-list a[href]").forEach((link) => {
+        const linkPage = link.getAttribute("href").split("#")[0];
+        if (linkPage === currentPage) link.setAttribute("aria-current", "page");
+    });
+}
+
 function setupProposalsModal() {
     const openBtn = document.getElementById("open-proposals");
     const modal = document.getElementById("proposals-modal");
@@ -68,6 +76,7 @@ function setupProposalsModal() {
     await injectPartial("#header-slot", "partials/header.html");
     await injectPartial("#footer-slot", "partials/footer.html");
     setupNav();
+    setupActiveNav();
     setupFooterYear();
     setupProposalsModal();
 })();
