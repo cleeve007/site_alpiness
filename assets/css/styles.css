@@ -1132,6 +1132,10 @@ main {
     object-position: center;
 }
 
+.fitness-header .training-heading {
+    padding-block: 18px;
+}
+
 .fitness-program {
     display: grid;
     gap: 24px;
