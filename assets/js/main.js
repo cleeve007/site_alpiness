@@ -20,6 +20,21 @@ function setupNav() {
             toggle.setAttribute("aria-expanded", String(!isOpen));
             nav.classList.toggle("open", !isOpen);
         });
+
+        nav.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+                toggle.setAttribute("aria-expanded", "false");
+                nav.classList.remove("open");
+            });
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && nav.classList.contains("open")) {
+                toggle.setAttribute("aria-expanded", "false");
+                nav.classList.remove("open");
+                toggle.focus();
+            }
+        });
     }
 
     document.querySelectorAll(".submenu-toggle").forEach((btn) => {
@@ -38,6 +53,7 @@ function setupFooterYear() {
 
 function setupActiveNav() {
     const currentPage = window.location.pathname.split("/").pop() || "index.html";
+    if (currentPage === "contact.html") document.body.classList.add("is-contact-page");
     document.querySelectorAll(".nav-list a[href]").forEach((link) => {
         const linkPage = link.getAttribute("href").split("#")[0];
         if (linkPage === currentPage) link.setAttribute("aria-current", "page");
@@ -49,16 +65,24 @@ function setupProposalsModal() {
     const modal = document.getElementById("proposals-modal");
     if (!openBtn || !modal) return;
 
+    const closeBtn = modal.querySelector(".modal-close");
+    let lastFocusedElement = null;
+
     const open = () => {
+        lastFocusedElement = document.activeElement;
         modal.classList.add("open");
         modal.setAttribute("aria-hidden", "false");
+        openBtn.setAttribute("aria-expanded", "true");
         document.body.style.overflow = "hidden";
+        closeBtn?.focus();
     };
 
     const close = () => {
         modal.classList.remove("open");
         modal.setAttribute("aria-hidden", "true");
+        openBtn.setAttribute("aria-expanded", "false");
         document.body.style.overflow = "";
+        lastFocusedElement?.focus();
     };
 
     openBtn.addEventListener("click", open);
@@ -69,6 +93,22 @@ function setupProposalsModal() {
 
     document.addEventListener("keydown", (e) => {
         if (e.key === "Escape" && modal.classList.contains("open")) close();
+    });
+
+    modal.addEventListener("keydown", (event) => {
+        if (event.key !== "Tab") return;
+        const focusable = [...modal.querySelectorAll("button, a[href], [tabindex]:not([tabindex='-1'])")]
+            .filter((element) => !element.hasAttribute("disabled"));
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+        }
     });
 }
 

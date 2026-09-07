@@ -6,14 +6,14 @@
     <title>Alpiness en Oisans — Accueil</title>
     <meta name="description" content="Randonnées, aventures et expériences sur mesure dans les massifs de l'Oisans, à la journée ou en itinérance." />
     <link rel="stylesheet" href="assets/css/styles.css" />
-    <link rel="icon" href="assets/img/logo.png">
+    <link rel="icon" href="assets/img/favicon-64.png">
 </head>
 <body>
     <div id="header-slot"></div>
 
     <main class="container">
         <section class="hero hero-image">
-            <button class="proposals-badge" id="open-proposals" type="button" aria-label="Mes dernières propositions">
+            <button class="proposals-badge" id="open-proposals" type="button" aria-label="Mes dernières propositions" aria-controls="proposals-modal" aria-expanded="false" aria-haspopup="dialog">
                 <div class="runner" aria-hidden="true">
                     <img src="assets/img/propositions/runner.gif" alt="">
                 </div>
@@ -145,7 +145,7 @@
             <div class="grid">
                 <article class="card">
                     <div class="card-media">
-                        <img src="assets/img/gallery/photo-rando-a-pied.jpg" alt="Randonnée à pied en Oisans" loading="lazy">
+                        <img src="assets/img/gallery/photo-rando-a-pied.webp" alt="Randonnée à pied en Oisans" loading="lazy">
                     </div>
                     <div class="card-body">
                         <h3>Vivre une aventure</h3>
@@ -173,7 +173,7 @@
 
                 <article class="card">
                     <div class="card-media">
-                        <img src="assets/img/preparer-un-objectif-hero.png" alt="Préparer un objectif en montagne" loading="lazy">
+                        <img src="assets/img/preparer-un-objectif-hero.webp" alt="Préparer un objectif en montagne" loading="lazy">
                     </div>
                     <div class="card-body">
                         <h3>Préparer un objectif</h3>
@@ -187,7 +187,7 @@
 
                 <article class="card">
                     <div class="card-media">
-                        <img src="assets/img/decouverte-du-patrimoine-hero.png" alt="Découverte du patrimoine en Oisans" loading="lazy">
+                        <img src="assets/img/decouverte-du-patrimoine-hero.webp" alt="Découverte du patrimoine en Oisans" loading="lazy">
                     </div>
                     <div class="card-body">
                         <h3>Découverte du patrimoine</h3>
@@ -201,7 +201,7 @@
 
                 <article class="card">
                     <div class="card-media">
-                        <img src="assets/img/hebergement-hero-interieur.png" alt="Hébergement — intérieur du chalet" loading="lazy">
+                        <img src="assets/img/hebergement-hero-interieur.webp" alt="Hébergement — intérieur du chalet" loading="lazy">
                     </div>
                     <div class="card-body">
                         <h3>Hébergement</h3>
@@ -218,9 +218,9 @@
 
     <div class="modal" id="proposals-modal" aria-hidden="true">
         <div class="modal-backdrop" data-close="1"></div>
-        <div class="modal-panel" role="dialog" aria-modal="true" aria-label="Mes dernières propositions">
+        <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="proposals-title">
             <div class="modal-header">
-                <div class="modal-title">Mes dernières propositions</div>
+                <div class="modal-title" id="proposals-title">Mes dernières propositions</div>
                 <button class="modal-close" type="button" data-close="1">Fermer</button>
             </div>
             <div class="modal-body">
@@ -244,7 +244,7 @@
                         <div class="title">Le chemin des pêcheurs — Portugal</div>
                     </div>
 
-                    <img class="flyer" src="assets/img/propositions/flyer.png" alt="Le chemin des pêcheurs au Portugal">
+                    <img class="flyer" src="assets/img/propositions/flyer.png" alt="Le chemin des pêcheurs au Portugal" loading="lazy">
                 </div>
             </div>
         </div>
