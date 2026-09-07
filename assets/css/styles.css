@@ -1126,6 +1126,7 @@ main {
 }
 
 .fitness-header img {
+    align-self: center;
     min-height: 360px;
     max-height: 420px;
     object-position: center;
