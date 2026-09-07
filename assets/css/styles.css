@@ -983,14 +983,14 @@ main {
     object-position: center;
 }
 
-.training-plan-card em {
+.training-plan-summary {
     color: var(--muted);
     font-size: 17px;
     line-height: 1.65;
 }
 
 .training-detail {
-    margin: 34px 0 72px;
+    margin: 34px auto 72px;
 }
 
 .training-back {
@@ -1126,7 +1126,8 @@ main {
 }
 
 .fitness-header img {
-    min-height: 420px;
+    min-height: 360px;
+    max-height: 420px;
     object-position: center;
 }
 
@@ -1139,7 +1140,7 @@ main {
 
 .fitness-step {
     display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 280px);
     gap: 30px;
     align-items: center;
     padding: 30px;
@@ -1159,22 +1160,13 @@ main {
     grid-row: 1;
 }
 
-.fitness-step-label {
-    margin: 0 0 8px;
-    color: var(--accent2);
-    font-size: 13px;
-    font-weight: 900;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-}
-
 .fitness-step h2 {
     margin: 0 0 16px;
     font-size: clamp(24px, 3vw, 34px);
     line-height: 1.15;
 }
 
-.fitness-step-copy p:not(.fitness-step-label) {
+.fitness-step-copy p {
     margin: 0 0 14px;
     color: var(--muted);
     font-size: 16px;
@@ -1187,6 +1179,8 @@ main {
 
 .fitness-step-media {
     margin: 0;
+    width: min(100%, 280px);
+    justify-self: center;
     overflow: hidden;
     border: 1px solid var(--line);
     border-radius: 18px;
@@ -1196,8 +1190,7 @@ main {
 .fitness-step-media > img {
     display: block;
     width: 100%;
-    min-height: 260px;
-    max-height: 360px;
+    max-height: 230px;
     object-fit: cover;
 }
 
@@ -1210,13 +1203,14 @@ main {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 8px;
+    width: min(100%, 420px);
     padding: 10px;
 }
 
 .fitness-gallery img {
     display: block;
     width: 100%;
-    height: 220px;
+    height: 140px;
     object-fit: contain;
 }
 
@@ -1255,7 +1249,8 @@ main {
     }
 
     .fitness-header img {
-        height: 320px;
+        height: 260px;
+        min-height: 260px;
     }
 
     .fitness-step:nth-child(even) .fitness-step-copy,
@@ -1273,6 +1268,6 @@ main {
     }
 
     .fitness-gallery img {
-        height: 210px;
+        height: 150px;
     }
 }
