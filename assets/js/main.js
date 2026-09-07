@@ -53,10 +53,13 @@ function setupFooterYear() {
 
 function setupActiveNav() {
     const currentPage = window.location.pathname.split("/").pop() || "index.html";
+    const navPage = ["formation-orientation.html", "preparation-physique-trek.html"].includes(currentPage)
+        ? "preparer-un-objectif.html"
+        : currentPage;
     if (currentPage === "contact.html") document.body.classList.add("is-contact-page");
     document.querySelectorAll(".nav-list a[href]").forEach((link) => {
         const linkPage = link.getAttribute("href").split("#")[0];
-        if (linkPage === currentPage) link.setAttribute("aria-current", "page");
+        if (linkPage === navPage) link.setAttribute("aria-current", "page");
     });
 }
 
