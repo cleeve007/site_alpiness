@@ -813,36 +813,6 @@ main {
     flex-wrap: wrap;
 }
 
-/* Galerie du chalet */
-.chalet-gallery {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
-}
-
-.chalet-gallery figure {
-    margin: 0;
-    overflow: hidden;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    background: var(--panel);
-    box-shadow: 0 10px 22px rgba(16,24,18,.08);
-}
-
-.chalet-gallery img {
-    display: block;
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-}
-
-.chalet-gallery figcaption {
-    padding: 14px 16px;
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.5;
-}
-
 /* Action de contact toujours accessible sur petit écran */
 .mobile-contact-cta {
     display: none;
@@ -924,8 +894,7 @@ main {
     }
 
     .contact-grid,
-    .contact-steps,
-    .chalet-gallery {
+    .contact-steps {
         grid-template-columns: 1fr;
     }
 
