@@ -539,9 +539,17 @@ main {
     overflow: hidden;
 }
 
-.heritage-feature p {
+.heritage-feature > p {
     margin: 0;
     padding: 28px;
+}
+
+.heritage-feature-copy {
+    padding: 28px;
+}
+
+.heritage-feature-copy p {
+    margin: 0 0 16px;
 }
 
 .heritage-feature img {
@@ -549,6 +557,10 @@ main {
     width: 100%;
     height: 280px;
     object-fit: cover;
+}
+
+.marmot-feature img {
+    object-position: center 44%;
 }
 
 @media (max-width: 760px) {
@@ -559,6 +571,10 @@ main {
 
     .heritage-feature img {
         height: auto;
+    }
+
+    .marmot-feature img {
+        height: 360px;
     }
 }
 
@@ -1114,6 +1130,17 @@ main {
 
 .training-closing p:last-child {
     margin-bottom: 0;
+}
+
+/* Observation des marmottes */
+.marmot-header img {
+    object-position: center 42%;
+}
+
+.marmot-terrier-figure {
+    max-width: 660px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 /* Préparation physique au trek */
