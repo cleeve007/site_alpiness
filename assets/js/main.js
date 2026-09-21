@@ -56,7 +56,7 @@ function setupActiveNav() {
         const path = value.split("#")[0].split("?")[0].replace(/\/+$/, "");
         const page = path.split("/").pop() || "index";
         const cleanPage = page.replace(/\.html$/, "");
-        return cleanPage === "randonnes" ? "index" : cleanPage;
+        return cleanPage === "randonnes" || cleanPage === "randonnees" ? "index" : cleanPage;
     };
     const currentPage = normalizePage(window.location.pathname);
     const parentPages = {
