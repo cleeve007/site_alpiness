@@ -52,16 +52,22 @@ function setupFooterYear() {
 }
 
 function setupActiveNav() {
-    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+    const normalizePage = (value) => {
+        const path = value.split("#")[0].split("?")[0].replace(/\/+$/, "");
+        const page = path.split("/").pop() || "index";
+        const cleanPage = page.replace(/\.html$/, "");
+        return cleanPage === "randonnes" ? "index" : cleanPage;
+    };
+    const currentPage = normalizePage(window.location.pathname);
     const parentPages = {
-        "formation-orientation.html": "preparer-un-objectif.html",
-        "preparation-physique-trek.html": "preparer-un-objectif.html",
-        "observation-marmottes.html": "decouverte-du-patrimoine.html",
+        "formation-orientation": "preparer-un-objectif",
+        "preparation-physique-trek": "preparer-un-objectif",
+        "observation-marmottes": "decouverte-du-patrimoine",
     };
     const navPage = parentPages[currentPage] || currentPage;
-    if (currentPage === "contact.html") document.body.classList.add("is-contact-page");
+    if (currentPage === "contact") document.body.classList.add("is-contact-page");
     document.querySelectorAll(".nav-list a[href]").forEach((link) => {
-        const linkPage = link.getAttribute("href").split("#")[0];
+        const linkPage = normalizePage(link.getAttribute("href"));
         if (linkPage === navPage) link.setAttribute("aria-current", "page");
     });
 }
