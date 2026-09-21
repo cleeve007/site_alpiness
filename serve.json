@@ -1,0 +1,108 @@
+{
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "type": 301
+    },
+    {
+      "source": "/index",
+      "destination": "/",
+      "type": 301
+    },
+    {
+      "source": "/vivre-une-aventure.html",
+      "destination": "/vivre-une-aventure",
+      "type": 301
+    },
+    {
+      "source": "/se-faire-du-bien.html",
+      "destination": "/se-faire-du-bien",
+      "type": 301
+    },
+    {
+      "source": "/preparer-un-objectif.html",
+      "destination": "/preparer-un-objectif",
+      "type": 301
+    },
+    {
+      "source": "/decouverte-du-patrimoine.html",
+      "destination": "/decouverte-du-patrimoine",
+      "type": 301
+    },
+    {
+      "source": "/hebergement.html",
+      "destination": "/hebergement",
+      "type": 301
+    },
+    {
+      "source": "/contact.html",
+      "destination": "/contact",
+      "type": 301
+    },
+    {
+      "source": "/formation-orientation.html",
+      "destination": "/formation-orientation",
+      "type": 301
+    },
+    {
+      "source": "/preparation-physique-trek.html",
+      "destination": "/preparation-physique-trek",
+      "type": 301
+    },
+    {
+      "source": "/observation-marmottes.html",
+      "destination": "/observation-marmottes",
+      "type": 301
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/randonnes",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/vivre-une-aventure",
+      "destination": "/vivre-une-aventure.html"
+    },
+    {
+      "source": "/se-faire-du-bien",
+      "destination": "/se-faire-du-bien.html"
+    },
+    {
+      "source": "/preparer-un-objectif",
+      "destination": "/preparer-un-objectif.html"
+    },
+    {
+      "source": "/decouverte-du-patrimoine",
+      "destination": "/decouverte-du-patrimoine.html"
+    },
+    {
+      "source": "/hebergement",
+      "destination": "/hebergement.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/formation-orientation",
+      "destination": "/formation-orientation.html"
+    },
+    {
+      "source": "/preparation-physique-trek",
+      "destination": "/preparation-physique-trek.html"
+    },
+    {
+      "source": "/observation-marmottes",
+      "destination": "/observation-marmottes.html"
+    }
+  ],
+  "directoryListing": false
+}
