@@ -317,6 +317,26 @@
     font-size: 27px;
 }
 
+.trip-stay-details {
+    display: grid;
+    gap: 5px;
+    margin: 0 0 16px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: rgba(47,111,85,.10);
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.trip-stay-details span {
+    display: block;
+}
+
+.trip-stay-details strong {
+    color: var(--text);
+}
+
 .trip-stay-copy p {
     margin: 0;
 }
