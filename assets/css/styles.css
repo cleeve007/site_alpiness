@@ -28,12 +28,15 @@
 }
 
 .trip-hero {
-    display: grid;
-    grid-template-columns: 1.02fr .98fr;
+    position: relative;
+    display: block;
+    min-height: 540px;
     overflow: hidden;
     border: 1px solid var(--line);
     border-radius: var(--radius);
-    background: var(--panel);
+    background:
+        linear-gradient(90deg, rgba(10,25,17,.90) 0%, rgba(10,25,17,.72) 46%, rgba(10,25,17,.18) 76%, rgba(10,25,17,.08) 100%),
+        url("/assets/img/trek-baronnies-2027/panorama-baronnies.jpg") center / cover no-repeat;
     box-shadow: var(--shadow);
 }
 
@@ -41,7 +44,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-height: 540px;
+    max-width: 700px;
     padding: clamp(30px, 5vw, 62px);
+    color: #fff;
 }
 
 .trip-eyebrow,
@@ -54,6 +60,10 @@
     text-transform: uppercase;
 }
 
+.trip-hero .trip-eyebrow {
+    color: #f2b36c;
+}
+
 .trip-hero h1 {
     margin: 0 0 18px;
     font-size: clamp(38px, 5vw, 60px);
@@ -62,22 +72,14 @@
 
 .trip-lead {
     margin: 0 0 26px;
-    color: var(--muted);
+    color: rgba(255,255,255,.88);
     font-size: clamp(18px, 2vw, 22px);
     line-height: 1.55;
 }
 
-.trip-hero-media {
-    margin: 0;
-    min-height: 520px;
-}
-
-.trip-hero-media img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+.trip-hero .btn:not(.primary) {
+    border-color: rgba(255,255,255,.55);
+    background: rgba(255,255,255,.92);
 }
 
 .trip-facts {
@@ -372,15 +374,10 @@
 }
 
 @media (max-width: 900px) {
-    .trip-hero,
     .trip-intro,
     .trip-route-layout,
     .trip-practical {
         grid-template-columns: 1fr;
-    }
-
-    .trip-hero-media {
-        min-height: 340px;
     }
 
     .trip-facts {
@@ -402,11 +399,15 @@
     }
 
     .trip-hero-copy {
+        min-height: 500px;
         padding: 28px 24px;
     }
 
-    .trip-hero-media {
-        min-height: 240px;
+    .trip-hero {
+        min-height: 500px;
+        background:
+            linear-gradient(180deg, rgba(10,25,17,.45) 0%, rgba(10,25,17,.82) 58%, rgba(10,25,17,.94) 100%),
+            url("/assets/img/trek-baronnies-2027/panorama-baronnies.jpg") center / cover no-repeat;
     }
 
     .trip-facts,
