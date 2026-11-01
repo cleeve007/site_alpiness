@@ -36,7 +36,7 @@
     border-radius: var(--radius);
     background:
         linear-gradient(90deg, rgba(10,25,17,.90) 0%, rgba(10,25,17,.72) 46%, rgba(10,25,17,.18) 76%, rgba(10,25,17,.08) 100%),
-        url("/assets/img/trek-baronnies-2027/panorama-baronnies.jpg") center / cover no-repeat;
+        url("/assets/img/trek-baronnies-2027/hero-baronnies-hd.jpg") center / cover no-repeat;
     box-shadow: var(--shadow);
 }
 
@@ -45,7 +45,7 @@
     flex-direction: column;
     justify-content: center;
     min-height: 540px;
-    max-width: 700px;
+    max-width: 680px;
     padding: clamp(30px, 5vw, 62px);
     color: #fff;
 }
@@ -68,6 +68,7 @@
     margin: 0 0 18px;
     font-size: clamp(38px, 5vw, 60px);
     line-height: 1.02;
+    text-wrap: balance;
 }
 
 .trip-lead {
@@ -80,6 +81,11 @@
 .trip-hero .btn:not(.primary) {
     border-color: rgba(255,255,255,.55);
     background: rgba(255,255,255,.92);
+    color: var(--text);
+}
+
+.trip-hero .hero-actions {
+    flex-wrap: wrap;
 }
 
 .trip-facts {
@@ -427,7 +433,7 @@
         min-height: 500px;
         background:
             linear-gradient(180deg, rgba(10,25,17,.45) 0%, rgba(10,25,17,.82) 58%, rgba(10,25,17,.94) 100%),
-            url("/assets/img/trek-baronnies-2027/panorama-baronnies.jpg") center / cover no-repeat;
+            url("/assets/img/trek-baronnies-2027/hero-baronnies-hd.jpg") 58% center / cover no-repeat;
     }
 
     .trip-facts,
