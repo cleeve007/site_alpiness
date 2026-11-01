@@ -60,6 +60,7 @@ function setupActiveNav() {
     };
     const currentPage = normalizePage(window.location.pathname);
     const parentPages = {
+        "trek-baronnies-2027": "vivre-une-aventure",
         "formation-orientation": "preparer-un-objectif",
         "preparation-physique-trek": "preparer-un-objectif",
         "observation-marmottes": "decouverte-du-patrimoine",
