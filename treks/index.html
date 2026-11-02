@@ -1,0 +1,84 @@
+---
+permalink: /treks/
+---
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Les treks - Alpiness en Oisans</title>
+  <meta name="description" content="Découvrez les prochains treks, les séjours sur demande et les aventures déjà réalisées avec Alpiness en Oisans.">
+  <link rel="canonical" href="https://alpinessenoisans.com/treks/">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="icon" href="/assets/img/favicon-64.png">
+</head>
+<body>
+  <div id="header-slot"></div>
+
+  <main class="container trek-catalogue">
+    <header class="trek-catalogue-hero">
+      <p class="trip-section-kicker">Marcher · découvrir · partager</p>
+      <h1>Les treks</h1>
+      <p>Des séjours accompagnés pour prendre le temps de parcourir un territoire, rencontrer ses paysages et vivre la montagne en petit groupe.</p>
+      <div class="trek-status-legend" aria-label="Statuts des treks">
+        {% include trek-status.html status="upcoming" %}
+        {% include trek-status.html status="on-request" %}
+        {% include trek-status.html status="past" %}
+      </div>
+    </header>
+
+    {% assign sorted_treks = site.treks | sort: "order" %}
+    {% assign upcoming_treks = sorted_treks | where: "status", "upcoming" %}
+    {% assign requested_treks = sorted_treks | where: "status", "on-request" %}
+    {% assign past_treks = sorted_treks | where: "status", "past" %}
+
+    {% if upcoming_treks.size > 0 %}
+      <section class="trek-catalogue-section" aria-labelledby="treks-upcoming-title">
+        <div class="trek-catalogue-heading">
+          <p class="trip-section-kicker">À vos agendas</p>
+          <h2 id="treks-upcoming-title">Les prochains départs</h2>
+        </div>
+        <div class="trek-card-grid">
+          {% for trek in upcoming_treks %}{% include trek-card.html trek=trek %}{% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if requested_treks.size > 0 %}
+      <section class="trek-catalogue-section" aria-labelledby="treks-request-title">
+        <div class="trek-catalogue-heading">
+          <p class="trip-section-kicker">À construire ensemble</p>
+          <h2 id="treks-request-title">Des aventures à organiser ensemble</h2>
+        </div>
+        <div class="trek-card-grid">
+          {% for trek in requested_treks %}{% include trek-card.html trek=trek %}{% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if past_treks.size > 0 %}
+      <section class="trek-catalogue-section" aria-labelledby="treks-past-title">
+        <div class="trek-catalogue-heading">
+          <p class="trip-section-kicker">Inspirations</p>
+          <h2 id="treks-past-title">Ils peuvent devenir votre prochaine aventure</h2>
+        </div>
+        <div class="trek-card-grid">
+          {% for trek in past_treks %}{% include trek-card.html trek=trek %}{% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    <section class="trip-cta trek-catalogue-cta">
+      <div>
+        <p class="trip-section-kicker">Un projet en tête ?</p>
+        <h2>Construisons votre prochaine aventure</h2>
+        <p>Destination, niveau, durée et envies : échangeons pour imaginer un trek adapté à votre groupe.</p>
+      </div>
+      <a class="btn primary" href="/contact">Me contacter</a>
+    </section>
+  </main>
+
+  <div id="footer-slot"></div>
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

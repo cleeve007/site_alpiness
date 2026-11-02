@@ -14,7 +14,193 @@
     --radius: 20px;
 }
 
-/* Trek des Baronnies */
+/* Catalogue et modèle commun des treks */
+.trek-catalogue {
+    margin: 34px auto 72px;
+}
+
+.trek-catalogue-hero {
+    max-width: 900px;
+    margin-bottom: 44px;
+    padding: clamp(32px, 6vw, 68px);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--panel);
+    box-shadow: var(--shadow);
+}
+
+.trek-catalogue-hero h1 {
+    margin: 0 0 18px;
+    font-size: clamp(42px, 7vw, 72px);
+    line-height: 1;
+}
+
+.trek-catalogue-hero > p:not(.trip-section-kicker) {
+    max-width: 760px;
+    color: var(--muted);
+    font-size: clamp(17px, 2vw, 21px);
+    line-height: 1.65;
+}
+
+.trek-status-legend,
+.trek-card-topline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.trek-status-legend {
+    margin-top: 24px;
+}
+
+.trek-status {
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    padding: 6px 11px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: .04em;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.trek-status--upcoming {
+    border-color: rgba(216,137,58,.35);
+    background: #f7d4a9;
+    color: #733c08;
+}
+
+.trek-status--on-request {
+    border-color: rgba(47,111,85,.28);
+    background: #d9e9df;
+    color: #204f3d;
+}
+
+.trek-status--past {
+    border-color: rgba(19,36,27,.16);
+    background: #edf0ed;
+    color: #435149;
+}
+
+.trek-catalogue-section {
+    margin-top: 46px;
+}
+
+.trek-catalogue-heading {
+    margin-bottom: 22px;
+}
+
+.trek-catalogue-heading h2 {
+    max-width: 780px;
+    margin: 0;
+    font-size: clamp(30px, 4vw, 46px);
+    line-height: 1.08;
+}
+
+.trek-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.trek-card {
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    min-width: 0;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    background: var(--panel-solid);
+    box-shadow: 0 10px 26px rgba(16,24,18,.09);
+}
+
+.trek-card-media {
+    display: block;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    background: rgba(47,111,85,.10);
+}
+
+.trek-card-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: transform .35s ease;
+    object-fit: cover;
+}
+
+.trek-card:hover .trek-card-media img {
+    transform: scale(1.025);
+}
+
+.trek-card-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 24px;
+}
+
+.trek-card-destination {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.trek-card h3 {
+    margin: 18px 0 10px;
+    font-size: 27px;
+    line-height: 1.12;
+}
+
+.trek-card h3 a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.trek-card-body > p {
+    margin: 0 0 20px;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.trek-card-meta {
+    display: grid;
+    gap: 10px;
+    margin: auto 0 22px;
+    padding: 18px 0 0;
+    border-top: 1px solid var(--line);
+    list-style: none;
+}
+
+.trek-card-meta li {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.trek-card-meta span {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.trek-card-meta strong {
+    text-align: right;
+    font-size: 14px;
+}
+
+.trek-card-cta {
+    align-self: flex-start;
+}
+
+.trek-catalogue-cta {
+    margin-top: 54px;
+}
+
 .trip-detail {
     margin: 34px auto 72px;
 }
@@ -34,9 +220,12 @@
     overflow: hidden;
     border: 1px solid var(--line);
     border-radius: var(--radius);
-    background:
+    background-image:
         linear-gradient(90deg, rgba(10,25,17,.90) 0%, rgba(10,25,17,.72) 46%, rgba(10,25,17,.18) 76%, rgba(10,25,17,.08) 100%),
-        url("/assets/img/trek-baronnies-2027/hero-baronnies-hd.jpg") center / cover no-repeat;
+        var(--trip-hero-image, linear-gradient(135deg, #1c4233, #13241b));
+    background-position: center, var(--trip-hero-position, center);
+    background-size: cover;
+    background-repeat: no-repeat;
     box-shadow: var(--shadow);
 }
 
@@ -62,6 +251,10 @@
 
 .trip-hero .trip-eyebrow {
     color: #f2b36c;
+}
+
+.trip-hero-status {
+    margin-bottom: 14px;
 }
 
 .trip-hero h1 {
@@ -400,6 +593,10 @@
 }
 
 @media (max-width: 900px) {
+    .trek-card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .trip-intro,
     .trip-route-layout,
     .trip-practical {
@@ -420,6 +617,18 @@
 }
 
 @media (max-width: 620px) {
+    .trek-catalogue {
+        margin-top: 22px;
+    }
+
+    .trek-catalogue-hero {
+        padding: 30px 24px;
+    }
+
+    .trek-card-grid {
+        grid-template-columns: 1fr;
+    }
+
     .trip-detail {
         margin-top: 22px;
     }
@@ -431,9 +640,11 @@
 
     .trip-hero {
         min-height: 500px;
-        background:
+        background-image:
             linear-gradient(180deg, rgba(10,25,17,.45) 0%, rgba(10,25,17,.82) 58%, rgba(10,25,17,.94) 100%),
-            url("/assets/img/trek-baronnies-2027/hero-baronnies-hd.jpg") 58% center / cover no-repeat;
+            var(--trip-hero-image, linear-gradient(135deg, #1c4233, #13241b));
+        background-position: center, var(--trip-hero-position, center);
+        background-size: cover;
     }
 
     .trip-facts,

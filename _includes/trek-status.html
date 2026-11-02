@@ -1,0 +1,10 @@
+{% assign trek_status = include.status | default: "past" %}
+{% case trek_status %}
+  {% when "upcoming" %}
+    {% assign trek_status_label = "Prochain départ" %}
+  {% when "on-request" %}
+    {% assign trek_status_label = "Sur demande" %}
+  {% else %}
+    {% assign trek_status_label = "Trek passé" %}
+{% endcase %}
+<span class="trek-status trek-status--{{ trek_status }}">{{ trek_status_label }}</span>

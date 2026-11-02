@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.seo_title | default: page.title }} - Alpiness en Oisans</title>
+  {% if page.seo_description or page.summary %}<meta name="description" content="{{ page.seo_description | default: page.summary | escape }}">{% endif %}
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <meta property="og:title" content="{{ page.og_title | default: page.title | escape }}">
+  {% if page.seo_description or page.summary %}<meta property="og:description" content="{{ page.seo_description | default: page.summary | escape }}">{% endif %}
+  {% if page.hero.image %}<meta property="og:image" content="{{ page.hero.image | absolute_url }}">{% endif %}
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+  <link rel="icon" href="{{ '/assets/img/favicon-64.png' | relative_url }}">
+</head>
+<body>
+  <div id="header-slot"></div>
+
+  {% case page.status %}
+    {% when "upcoming" %}
+      {% assign default_cta_label = "Demander des informations" %}
+      {% assign default_cta_url = "/contact" %}
+    {% when "on-request" %}
+      {% assign default_cta_label = "Parler de ce trek" %}
+      {% assign default_cta_url = "/contact" %}
+    {% else %}
+      {% assign default_cta_label = "Organiser un trek similaire" %}
+      {% assign default_cta_url = "/contact" %}
+  {% endcase %}
+  {% assign cta_label = page.cta.label | default: default_cta_label %}
+  {% assign cta_url = page.cta.url | default: default_cta_url %}
+
+  <main class="container trip-detail">
+    <a class="trip-back" href="{{ '/treks/' | relative_url }}">← Retour aux treks</a>
+
+    <section class="trip-hero{% unless page.hero.image %} trip-hero--plain{% endunless %}"{% if page.hero.image %} style="--trip-hero-image: url('{{ page.hero.image | relative_url }}'); --trip-hero-position: {{ page.hero.position | default: 'center' }};"{% endif %}>
+      <div class="trip-hero-copy">
+        <div class="trip-hero-status">{% include trek-status.html status=page.status %}</div>
+        {% if page.eyebrow %}<p class="trip-eyebrow">{{ page.eyebrow }}</p>{% endif %}
+        <h1>{{ page.title }}</h1>
+        {% if page.summary %}<p class="trip-lead">{{ page.summary }}</p>{% endif %}
+        <div class="hero-actions">
+          <a class="btn primary" href="{{ cta_url | relative_url }}">{{ cta_label }}</a>
+          {% if page.pdf_url %}<a class="btn" href="{{ page.pdf_url | relative_url }}" target="_blank" rel="noopener">{{ page.pdf_label | default: "Télécharger la présentation" }}</a>{% endif %}
+        </div>
+      </div>
+    </section>
+
+    {% if page.facts and page.facts.size > 0 %}
+      <section class="trip-facts" aria-label="Informations principales du séjour">
+        {% for fact in page.facts %}
+          {% if fact.value %}
+            <div class="trip-fact">
+              {% if fact.label %}<span class="trip-fact-label">{{ fact.label }}</span>{% endif %}
+              <strong>{{ fact.value }}</strong>
+              {% if fact.level %}
+                <span class="trip-level" aria-label="Niveau {{ fact.level }} sur 5">
+                  {% for step in (1..5) %}<i{% if step > fact.level %} class="empty"{% endif %}></i>{% endfor %}
+                </span>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </section>
+    {% endif %}
+
+    {% if page.introduction.title or page.introduction.paragraphs or page.highlights %}
+      <section class="trip-section trip-intro">
+        <div>
+          {% if page.introduction.kicker %}<p class="trip-section-kicker">{{ page.introduction.kicker }}</p>{% endif %}
+          {% if page.introduction.title %}<h2>{{ page.introduction.title }}</h2>{% endif %}
+          {% for paragraph in page.introduction.paragraphs %}<p>{{ paragraph }}</p>{% endfor %}
+        </div>
+        {% if page.highlights and page.highlights.size > 0 %}
+          <aside class="trip-highlights">
+            <h3>{{ page.highlights_title | default: "Les points forts" }}</h3>
+            <ul>{% for highlight in page.highlights %}<li>{{ highlight }}</li>{% endfor %}</ul>
+          </aside>
+        {% endif %}
+      </section>
+    {% endif %}
+
+    {% if page.gallery and page.gallery.size > 0 %}
+      <section class="trip-gallery" aria-label="Paysages du trek">
+        {% for image in page.gallery %}
+          {% if image.src %}<img src="{{ image.src | relative_url }}" alt="{{ image.alt | default: page.title }}"{% if image.width %} width="{{ image.width }}"{% endif %}{% if image.height %} height="{{ image.height }}"{% endif %} loading="lazy">{% endif %}
+        {% endfor %}
+      </section>
+    {% endif %}
+
+    {% if page.route.title or page.route.image or page.route.stats %}
+      <section class="trip-section trip-route">
+        <div class="trip-section-heading">
+          {% if page.route.kicker %}<p class="trip-section-kicker">{{ page.route.kicker }}</p>{% endif %}
+          {% if page.route.title %}<h2>{{ page.route.title }}</h2>{% endif %}
+          {% if page.route.description %}<p>{{ page.route.description }}</p>{% endif %}
+        </div>
+        <div class="trip-route-layout">
+          {% if page.route.image %}
+            <figure class="trip-route-map">
+              <img src="{{ page.route.image | relative_url }}" alt="{{ page.route.image_alt | default: page.route.title }}" loading="lazy">
+            </figure>
+          {% endif %}
+          {% if page.route.stats and page.route.stats.size > 0 %}
+            <div class="trip-route-stats">
+              {% for stat in page.route.stats %}
+                {% if stat.value %}<div><strong>{{ stat.value }}</strong>{% if stat.label %}<span>{{ stat.label }}</span>{% endif %}</div>{% endif %}
+              {% endfor %}
+              {% if page.route.note %}<p>{{ page.route.note }}</p>{% endif %}
+            </div>
+          {% endif %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if page.stays and page.stays.size > 0 %}
+      <section class="trip-section">
+        <div class="trip-section-heading">
+          {% if page.stays_kicker %}<p class="trip-section-kicker">{{ page.stays_kicker }}</p>{% endif %}
+          {% if page.stays_title %}<h2>{{ page.stays_title }}</h2>{% endif %}
+          {% if page.stays_description %}<p>{{ page.stays_description }}</p>{% endif %}
+        </div>
+        <div class="trip-stays">
+          {% for stay in page.stays %}
+            <article class="trip-stay-card">
+              {% if stay.images and stay.images.size > 0 %}
+                <div class="trip-stay-gallery">
+                  {% for image in stay.images %}{% if image.src %}<img src="{{ image.src | relative_url }}" alt="{{ image.alt | default: stay.title }}" loading="lazy">{% endif %}{% endfor %}
+                </div>
+              {% endif %}
+              <div class="trip-stay-copy">
+                {% if stay.option %}<span class="trip-stay-option">{{ stay.option }}</span>{% endif %}
+                {% if stay.title %}<h3>{{ stay.title }}</h3>{% endif %}
+                {% if stay.date or stay.price or stay.meal_plan %}
+                  <div class="trip-stay-details">
+                    {% if stay.date %}<span><strong>{{ stay.date }}</strong></span>{% endif %}
+                    {% if stay.price %}<span><strong>{{ stay.price }}</strong>{% if stay.meal_plan %} · {{ stay.meal_plan }}{% endif %}</span>{% elsif stay.meal_plan %}<span>{{ stay.meal_plan }}</span>{% endif %}
+                  </div>
+                {% endif %}
+                {% if stay.description %}<p>{{ stay.description }}</p>{% endif %}
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if page.practical and page.practical.size > 0 %}
+      <section class="trip-section trip-practical">
+        <div>
+          {% if page.practical_kicker %}<p class="trip-section-kicker">{{ page.practical_kicker }}</p>{% endif %}
+          <h2>{{ page.practical_title | default: "À savoir" }}</h2>
+        </div>
+        <div class="trip-practical-grid">
+          {% for item in page.practical %}
+            {% if item.value %}<div>{% if item.label %}<strong>{{ item.label }}</strong>{% endif %}<span>{{ item.value }}</span></div>{% endif %}
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    <section class="trip-cta">
+      <div>
+        {% if page.cta.kicker %}<p class="trip-section-kicker">{{ page.cta.kicker }}</p>{% endif %}
+        <h2>{{ page.cta.title | default: "Parlons de votre projet" }}</h2>
+        {% if page.cta.text %}<p>{{ page.cta.text }}</p>{% endif %}
+      </div>
+      <a class="btn primary" href="{{ cta_url | relative_url }}">{{ cta_label }}</a>
+    </section>
+  </main>
+
+  <div id="footer-slot"></div>
+  <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+</body>
+</html>
