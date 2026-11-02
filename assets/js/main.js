@@ -60,8 +60,8 @@ function setupActiveNav() {
     };
     const currentPage = normalizePage(window.location.pathname);
     const parentPages = {
-        "trek-baronnies-2027": "vivre-une-aventure",
-        "baronnies-2027": "vivre-une-aventure",
+        "trek-baronnies-2027": "treks",
+        "baronnies-2027": "treks",
         "formation-orientation": "preparer-un-objectif",
         "preparation-physique-trek": "preparer-un-objectif",
         "observation-marmottes": "decouverte-du-patrimoine",
@@ -69,60 +69,10 @@ function setupActiveNav() {
     const navPage = parentPages[currentPage] || currentPage;
     if (currentPage === "contact") document.body.classList.add("is-contact-page");
     document.querySelectorAll(".nav-list a[href]").forEach((link) => {
-        const linkPage = normalizePage(link.getAttribute("href"));
+        const href = link.getAttribute("href");
+        if (href.includes("#")) return;
+        const linkPage = normalizePage(href);
         if (linkPage === navPage) link.setAttribute("aria-current", "page");
-    });
-}
-
-function setupProposalsModal() {
-    const openBtn = document.getElementById("open-proposals");
-    const modal = document.getElementById("proposals-modal");
-    if (!openBtn || !modal) return;
-
-    const closeBtn = modal.querySelector(".modal-close");
-    let lastFocusedElement = null;
-
-    const open = () => {
-        lastFocusedElement = document.activeElement;
-        modal.classList.add("open");
-        modal.setAttribute("aria-hidden", "false");
-        openBtn.setAttribute("aria-expanded", "true");
-        document.body.style.overflow = "hidden";
-        closeBtn?.focus();
-    };
-
-    const close = () => {
-        modal.classList.remove("open");
-        modal.setAttribute("aria-hidden", "true");
-        openBtn.setAttribute("aria-expanded", "false");
-        document.body.style.overflow = "";
-        lastFocusedElement?.focus();
-    };
-
-    openBtn.addEventListener("click", open);
-
-    modal.querySelectorAll("[data-close='1']").forEach((el) => {
-        el.addEventListener("click", close);
-    });
-
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && modal.classList.contains("open")) close();
-    });
-
-    modal.addEventListener("keydown", (event) => {
-        if (event.key !== "Tab") return;
-        const focusable = [...modal.querySelectorAll("button, a[href], [tabindex]:not([tabindex='-1'])")]
-            .filter((element) => !element.hasAttribute("disabled"));
-        if (!focusable.length) return;
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
-        if (event.shiftKey && document.activeElement === first) {
-            event.preventDefault();
-            last.focus();
-        } else if (!event.shiftKey && document.activeElement === last) {
-            event.preventDefault();
-            first.focus();
-        }
     });
 }
 
@@ -132,5 +82,4 @@ function setupProposalsModal() {
     setupNav();
     setupActiveNav();
     setupFooterYear();
-    setupProposalsModal();
 })();

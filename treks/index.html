@@ -33,7 +33,7 @@ permalink: /treks/
     {% assign past_treks = sorted_treks | where: "status", "past" %}
 
     {% if upcoming_treks.size > 0 %}
-      <section class="trek-catalogue-section" aria-labelledby="treks-upcoming-title">
+      <section class="trek-catalogue-section" id="prochains-departs" aria-labelledby="treks-upcoming-title">
         <div class="trek-catalogue-heading">
           <p class="trip-section-kicker">À vos agendas</p>
           <h2 id="treks-upcoming-title">Les prochains départs</h2>
@@ -45,7 +45,7 @@ permalink: /treks/
     {% endif %}
 
     {% if requested_treks.size > 0 %}
-      <section class="trek-catalogue-section" aria-labelledby="treks-request-title">
+      <section class="trek-catalogue-section" id="treks-sur-demande" aria-labelledby="treks-request-title">
         <div class="trek-catalogue-heading">
           <p class="trip-section-kicker">À construire ensemble</p>
           <h2 id="treks-request-title">Des aventures à organiser ensemble</h2>
@@ -57,7 +57,7 @@ permalink: /treks/
     {% endif %}
 
     {% if past_treks.size > 0 %}
-      <section class="trek-catalogue-section" aria-labelledby="treks-past-title">
+      <section class="trek-catalogue-section" id="treks-realises" aria-labelledby="treks-past-title">
         <div class="trek-catalogue-heading">
           <p class="trip-section-kicker">Inspirations</p>
           <h2 id="treks-past-title">Ils peuvent devenir votre prochaine aventure</h2>

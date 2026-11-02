@@ -2012,3 +2012,451 @@ main {
         height: 150px;
     }
 }
+
+/* Accueil centré sur les treks */
+.home-page {
+    padding-top: 24px;
+}
+
+.home-hero {
+    min-height: min(78vh, 820px);
+    background-position: center 58%;
+}
+
+.home-hero .hero-overlay {
+    background: linear-gradient(90deg, rgba(13,31,22,.86) 0%, rgba(13,31,22,.66) 46%, rgba(13,31,22,.16) 100%);
+}
+
+.home-hero .hero-content {
+    max-width: 920px;
+    padding: clamp(34px, 6vw, 76px);
+}
+
+.home-hero-kicker {
+    margin: 0 0 14px;
+    color: #ffd19d !important;
+    font-size: 13px !important;
+    font-weight: 900;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.home-hero .hero-content h1 {
+    max-width: 880px;
+    margin: 0 0 22px;
+    font-size: clamp(44px, 6.3vw, 78px);
+    line-height: .98;
+    text-wrap: balance;
+}
+
+.home-hero .hero-content > p:not(.home-hero-kicker) {
+    max-width: 660px;
+    margin-bottom: 30px;
+    font-size: clamp(18px, 2vw, 22px);
+}
+
+.home-hero .btn:not(.primary) {
+    border-color: rgba(255,255,255,.72);
+    background: rgba(255,255,255,.94);
+    color: var(--text);
+}
+
+.home-section {
+    margin-top: clamp(52px, 7vw, 90px);
+}
+
+.home-section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 26px;
+}
+
+.home-section-heading h2,
+.home-guide h2,
+.home-final-cta h2 {
+    max-width: 850px;
+    margin: 0;
+    font-size: clamp(32px, 4.8vw, 54px);
+    line-height: 1.04;
+    text-wrap: balance;
+}
+
+.home-section-link {
+    flex: 0 0 auto;
+    color: var(--accent2);
+    font-weight: 900;
+}
+
+.home-upcoming-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.home-upcoming-grid--single {
+    grid-template-columns: 1fr;
+}
+
+.home-upcoming-grid--single .trek-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(330px, .65fr);
+}
+
+.home-upcoming-grid--single .trek-card-media {
+    min-height: 430px;
+    aspect-ratio: auto;
+}
+
+.home-trek-paths {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.home-trek-path {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    min-height: 330px;
+    padding: clamp(28px, 4.5vw, 52px);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+}
+
+.home-trek-path--request {
+    background: linear-gradient(145deg, #f6d4ac, rgba(255,255,255,.76));
+}
+
+.home-trek-path--past {
+    background: linear-gradient(145deg, #dbe9df, rgba(255,255,255,.78));
+}
+
+.home-trek-path h3 {
+    margin: 24px 0 12px;
+    font-size: clamp(27px, 3vw, 38px);
+    line-height: 1.08;
+}
+
+.home-trek-path p {
+    max-width: 610px;
+    margin: 0 0 28px;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.65;
+}
+
+.home-trek-path .btn {
+    margin-top: auto;
+}
+
+.home-guide {
+    display: grid;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    gap: clamp(32px, 5vw, 68px);
+    padding: clamp(30px, 5vw, 68px);
+    border: 1px solid var(--line);
+    border-radius: 26px;
+    background: rgba(255,255,255,.72);
+    box-shadow: var(--shadow);
+}
+
+.home-guide-intro > p:not(.trip-section-kicker) {
+    margin: 24px 0 28px;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.72;
+}
+
+.home-engagements {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.home-engagements article {
+    padding: 22px;
+    border: 1px solid rgba(47,111,85,.14);
+    border-radius: 18px;
+    background: rgba(255,255,255,.68);
+}
+
+.home-engagements strong,
+.home-engagements span {
+    display: block;
+}
+
+.home-engagements strong {
+    margin-bottom: 8px;
+    color: var(--accent2);
+    font-size: 18px;
+}
+
+.home-engagements span {
+    color: var(--muted);
+    line-height: 1.55;
+}
+
+.home-approach-details {
+    grid-column: 1 / -1;
+    padding-top: 26px;
+    border-top: 1px solid var(--line);
+}
+
+.home-approach-details summary,
+.home-faq-list summary {
+    cursor: pointer;
+    list-style: none;
+}
+
+.home-approach-details summary::-webkit-details-marker,
+.home-faq-list summary::-webkit-details-marker {
+    display: none;
+}
+
+.home-approach-details summary {
+    color: var(--accent2);
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.home-approach-details summary::after,
+.home-faq-list summary::after {
+    content: "+";
+    float: right;
+    margin-left: 18px;
+}
+
+.home-approach-details[open] summary::after,
+.home-faq-list details[open] summary::after {
+    content: "−";
+}
+
+.home-approach-content {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 34px;
+    padding-top: 24px;
+}
+
+.home-approach-content h3 {
+    margin: 0 0 8px;
+}
+
+.home-approach-content p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.65;
+}
+
+.home-secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.home-secondary-card {
+    display: block;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: rgba(255,255,255,.72);
+    color: var(--text);
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(16,24,18,.07);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.home-secondary-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.home-secondary-card img {
+    display: block;
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.home-secondary-card span {
+    display: grid;
+    gap: 7px;
+    padding: 18px;
+}
+
+.home-secondary-card strong {
+    line-height: 1.2;
+}
+
+.home-secondary-card small {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.home-faq {
+    max-width: 1080px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.home-faq-list {
+    display: grid;
+    gap: 12px;
+}
+
+.home-faq-list details {
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: rgba(255,255,255,.76);
+    box-shadow: 0 6px 18px rgba(16,24,18,.06);
+}
+
+.home-faq-list summary {
+    padding: 20px 24px;
+    font-size: 17px;
+    font-weight: 850;
+}
+
+.home-faq-list details > div {
+    padding: 0 24px 24px;
+    color: var(--muted);
+}
+
+.home-faq-list details > div p {
+    margin: 0;
+    line-height: 1.65;
+}
+
+.home-faq-list .table-scroll {
+    max-width: 100%;
+}
+
+.home-final-cta {
+    margin-top: clamp(58px, 8vw, 100px);
+    margin-bottom: 72px;
+}
+
+@media (max-width: 1160px) {
+    .header-inner {
+        flex-wrap: wrap;
+    }
+
+    .nav-toggle {
+        display: inline-flex;
+    }
+
+    .nav {
+        display: none;
+        width: 100%;
+    }
+
+    .nav.open {
+        display: block;
+    }
+
+    .nav-list {
+        align-items: stretch;
+        flex-direction: column;
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: rgba(255,255,255,.92);
+    }
+
+    .nav-list a {
+        display: block;
+    }
+
+    .has-submenu {
+        position: static;
+    }
+
+    .submenu {
+        position: static;
+        display: none;
+        margin-top: 8px;
+    }
+
+    .has-submenu.submenu-open > .submenu {
+        display: block;
+    }
+}
+
+@media (max-width: 1050px) {
+    .home-secondary-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    .home-upcoming-grid--single .trek-card,
+    .home-guide {
+        grid-template-columns: 1fr;
+    }
+
+    .home-upcoming-grid--single .trek-card-media {
+        min-height: 340px;
+    }
+}
+
+@media (max-width: 760px) {
+    .home-page {
+        padding-top: 16px;
+    }
+
+    .home-hero {
+        min-height: min(76vh, 680px);
+        background-position: 56% center;
+    }
+
+    .home-hero .hero-overlay {
+        background: linear-gradient(90deg, rgba(13,31,22,.86), rgba(13,31,22,.46));
+    }
+
+    .home-hero .hero-content h1 {
+        font-size: clamp(39px, 12vw, 58px);
+    }
+
+    .home-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .home-upcoming-grid,
+    .home-trek-paths,
+    .home-engagements,
+    .home-approach-content,
+    .home-secondary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-trek-path {
+        min-height: 0;
+    }
+
+    .home-secondary-card {
+        display: grid;
+        grid-template-columns: 130px minmax(0, 1fr);
+    }
+
+    .home-secondary-card img {
+        height: 100%;
+        min-height: 132px;
+    }
+
+    .home-faq-list summary {
+        padding: 18px;
+    }
+
+    .home-faq-list details > div {
+        padding: 0 18px 20px;
+    }
+
+    .home-final-cta {
+        margin-bottom: 22px;
+    }
+}
