@@ -17,8 +17,10 @@ season: autumn
 season_label: "Automne"
 hero:
   image: /assets/img/trek-mont-olympe/hero-mont-olympe.webp
-  alt: "Randonneur sur une crête rocheuse du massif du Mont Olympe"
+  alt: "Randonneur progressant sur une crête rocheuse face aux sommets du Mont Olympe"
   position: center
+card_image: /assets/img/trek-mont-olympe/card.webp
+card_image_alt: "Randonneur sur la crête rocheuse du Mont Olympe, sommet visible à gauche"
 facts:
   - label: "Séjour réalisé"
     value: "6 jours"

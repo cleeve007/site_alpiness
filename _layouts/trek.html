@@ -34,6 +34,7 @@
     <a class="trip-back" href="{{ '/treks/' | relative_url }}">← Retour aux treks</a>
 
     <section class="trip-hero{% unless page.hero.image %} trip-hero--plain{% endunless %}"{% if page.hero.image %} style="--trip-hero-image: url('{{ page.hero.image | relative_url }}'); --trip-hero-position: {{ page.hero.position | default: 'center' }};"{% endif %}>
+      {% if page.hero.alt %}<span class="sr-only">Image : {{ page.hero.alt }}</span>{% endif %}
       <div class="trip-hero-copy">
         <div class="trip-hero-status">{% include trek-status.html status=page.status %}</div>
         {% if page.eyebrow %}<p class="trip-eyebrow">{{ page.eyebrow }}</p>{% endif %}

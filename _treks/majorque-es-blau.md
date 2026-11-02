@@ -16,9 +16,11 @@ filter_level: unknown
 season: autumn
 season_label: "Automne"
 hero:
-  image: /assets/img/trek-majorque/hero-majorque.webp
-  alt: "Crique turquoise entourée de falaises calcaires à Majorque"
+  image: /assets/img/trek-majorque/hero-banner.webp
+  alt: "Crique turquoise encaissée entre de hautes falaises calcaires à Majorque"
   position: center
+card_image: /assets/img/trek-majorque/card.webp
+card_image_alt: "Eau turquoise et falaises calcaires d’une crique sauvage de Majorque"
 facts:
   - label: "Séjour réalisé"
     value: "6 jours · 5 nuits"

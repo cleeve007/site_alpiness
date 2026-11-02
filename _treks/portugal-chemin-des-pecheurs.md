@@ -17,8 +17,10 @@ season: autumn
 season_label: "Automne"
 hero:
   image: /assets/img/trek-portugal/hero-portugal.webp
-  alt: "Randonneur sur le chemin des pêcheurs face à l’océan Atlantique"
+  alt: "Randonneur sur le chemin des pêcheurs dominant les falaises et l’océan Atlantique"
   position: center
+card_image: /assets/img/trek-portugal/card.webp
+card_image_alt: "Randonneur vu de dos sur le sentier côtier au-dessus de l’océan au Portugal"
 facts:
   - label: "Séjour réalisé"
     value: "6 jours · 5 nuits"

@@ -16,9 +16,11 @@ filter_level: mixed
 season: spring
 season_label: "Printemps"
 hero:
-  image: /assets/img/trek-pyrenees/hero-pyrenees.webp
-  alt: "Le cirque de Gavarnie entouré de hauts sommets pyrénéens"
+  image: /assets/img/trek-pyrenees/hero-banner.webp
+  alt: "Grande cascade du cirque de Gavarnie tombant au pied des parois pyrénéennes"
   position: center
+card_image: /assets/img/trek-pyrenees/card.webp
+card_image_alt: "Cascade et hautes parois rocheuses du cirque de Gavarnie dans les Pyrénées"
 facts:
   - label: "Dates réalisées"
     value: "19-23 juin 2024"

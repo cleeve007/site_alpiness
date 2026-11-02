@@ -16,9 +16,11 @@ filter_level: unknown
 season: autumn
 season_label: "Automne"
 hero:
-  image: /assets/img/trek-tenerife/hero-tenerife.webp
-  alt: "Sentier côtier volcanique au-dessus de l’océan à Tenerife"
+  image: /assets/img/trek-tenerife/hero-banner.webp
+  alt: "Randonneur sur un sentier volcanique bordé de cactus au-dessus de l’océan à Tenerife"
   position: center
+card_image: /assets/img/trek-tenerife/card.webp
+card_image_alt: "Randonneur sur un sentier côtier entre relief volcanique, cactus et océan à Tenerife"
 facts:
   - label: "Dates réalisées"
     value: "10-15 octobre 2023"

@@ -22,9 +22,11 @@ season: spring
 season_label: "Printemps"
 card_price: "À partir de 880 € / pers."
 hero:
-  image: /assets/img/trek-baronnies-2027/hero-baronnies-hd.jpg
-  alt: "Reliefs des Baronnies provençales et champs de lavande"
+  image: /assets/img/trek-baronnies-2027/hero-banner.webp
+  alt: "Reliefs boisés des Baronnies provençales dominant des rangées de lavande au soleil"
   position: center
+card_image: /assets/img/trek-baronnies-2027/card.webp
+card_image_alt: "Champ de lavande face aux reliefs des Baronnies provençales"
 pdf_url: /assets/docs/trek-des-baronnies-mai-2027.pdf
 pdf_label: "Télécharger la présentation"
 facts:

@@ -5,9 +5,11 @@
 {% if trek.card_url %}{% assign card_url = trek.card_url %}{% endif %}
 
 <article class="trek-card trek-card--{{ trek.status | default: 'past' }}" data-trek-card data-status="{{ trek.status | default: 'past' }}" data-level="{{ trek.filter_level | default: trek.level | default: 'unknown' }}" data-duration="{{ trek.duration_days | default: 'unknown' }}" data-season="{{ trek.season | default: 'unknown' }}">
-  {% if trek.hero.image %}
+  {% assign trek_card_image = trek.card_image | default: trek.hero.image %}
+  {% assign trek_card_alt = trek.card_image_alt | default: trek.hero.alt | default: trek.title %}
+  {% if trek_card_image %}
     <a class="trek-card-media" href="{{ trek.url | relative_url }}" aria-label="Découvrir {{ trek.title }}">
-      <img src="{{ trek.hero.image | relative_url }}" alt="{{ trek.hero.alt | default: trek.title }}" loading="lazy">
+      <img src="{{ trek_card_image | relative_url }}" alt="{{ trek_card_alt }}" loading="lazy">
     </a>
   {% endif %}
 

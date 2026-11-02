@@ -16,9 +16,11 @@ filter_level: unknown
 season: spring
 season_label: "Printemps"
 hero:
-  image: /assets/img/trek-pays-basque/hero-pays-basque.webp
-  alt: "Panorama sur les reliefs verdoyants du Pays Basque"
+  image: /assets/img/trek-pays-basque/hero-banner.webp
+  alt: "Panorama sur les vallées verdoyantes et les reliefs montagneux du Pays Basque"
   position: center
+card_image: /assets/img/trek-pays-basque/card.webp
+card_image_alt: "Vallées vertes et chaîne des Pyrénées atlantiques sous un ciel bleu"
 facts:
   - label: "Dates réalisées"
     value: "18-22 juin 2025"
