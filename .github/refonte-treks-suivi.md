@@ -12,12 +12,19 @@ Ce document sert de mémoire de travail pour la refonte. Il n'est pas destiné �
 - Ne pas fusionner la branche `refonte/treks-v2` sans l'accord explicite du propriétaire du site.
 - Conserver un commit distinct pour chaque grande étape de la refonte.
 
+## Architecture validée
+
+- Menu principal : `Les treks`, `Randonnées à la journée`, `Préparer son objectif`, `Découvrir l'Oisans`, `À propos`, puis le bouton `Contact`.
+- Regrouper `Nature et patrimoine`, `Observation des marmottes` et `Hébergement` sous `Découvrir l'Oisans`.
+- Utiliser le titre `Ils peuvent devenir votre prochaine aventure` pour présenter les treks déjà réalisés.
+- Conserver `/randonnees/` comme adresse canonique de la page d'accueil.
+- Classer le Chemin des pêcheurs au Portugal parmi les treks déjà réalisés.
+
 ## Informations à redemander plus tard
 
 ### Chemin des pêcheurs - Portugal
 
 - Année exacte du séjour présenté du 8 au 13 octobre.
-- Statut futur souhaité : sur demande ou nouveau départ programmé.
 - Niveau global sur 5.
 - Parcours définitifs des trois premières randonnées.
 - Temps de marche des randonnées.
