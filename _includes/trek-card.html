@@ -1,19 +1,10 @@
 {% assign trek = include.trek %}
-{% case trek.status %}
-  {% when "upcoming" %}
-    {% assign card_cta = "Découvrir le trek" %}
-    {% assign card_url = trek.url %}
-  {% when "on-request" %}
-    {% assign card_cta = "Parler de ce trek" %}
-    {% assign card_url = "/contact" %}
-  {% else %}
-    {% assign card_cta = "Organiser un trek similaire" %}
-    {% assign card_url = "/contact" %}
-{% endcase %}
+{% assign card_cta = "Découvrir le trek" %}
+{% assign card_url = trek.url %}
 {% if trek.card_cta %}{% assign card_cta = trek.card_cta %}{% endif %}
 {% if trek.card_url %}{% assign card_url = trek.card_url %}{% endif %}
 
-<article class="trek-card trek-card--{{ trek.status | default: 'past' }}">
+<article class="trek-card trek-card--{{ trek.status | default: 'past' }}" data-trek-card data-status="{{ trek.status | default: 'past' }}" data-level="{{ trek.filter_level | default: trek.level | default: 'unknown' }}" data-duration="{{ trek.duration_days | default: 'unknown' }}" data-season="{{ trek.season | default: 'unknown' }}">
   {% if trek.hero.image %}
     <a class="trek-card-media" href="{{ trek.url | relative_url }}" aria-label="Découvrir {{ trek.title }}">
       <img src="{{ trek.hero.image | relative_url }}" alt="{{ trek.hero.alt | default: trek.title }}" loading="lazy">
@@ -29,11 +20,12 @@
     <h3><a href="{{ trek.url | relative_url }}">{{ trek.title }}</a></h3>
     {% if trek.card_summary %}<p>{{ trek.card_summary }}</p>{% elsif trek.summary %}<p>{{ trek.summary }}</p>{% endif %}
 
-    {% if trek.card_date or trek.duration or trek.level %}
+    {% if trek.card_date or trek.duration or trek.level or trek.level_label or trek.card_price %}
       <ul class="trek-card-meta" aria-label="Informations principales">
-        {% if trek.card_date %}<li><span>Dates</span><strong>{{ trek.card_date }}</strong></li>{% endif %}
         {% if trek.duration %}<li><span>Durée</span><strong>{{ trek.duration }}</strong></li>{% endif %}
-        {% if trek.level %}<li><span>Niveau</span><strong>{{ trek.level }}/5</strong></li>{% endif %}
+        {% if trek.level %}<li><span>Niveau</span><strong>{{ trek.level }}/5</strong></li>{% elsif trek.level_label %}<li><span>Niveau</span><strong>{{ trek.level_label }}</strong></li>{% endif %}
+        {% if trek.card_date %}<li><span>Prochaine date</span><strong>{{ trek.card_date }}</strong></li>{% endif %}
+        {% if trek.card_price %}<li><span>Prix</span><strong>{{ trek.card_price }}</strong></li>{% endif %}
       </ul>
     {% endif %}
 

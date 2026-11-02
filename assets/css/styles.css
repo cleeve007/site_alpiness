@@ -201,6 +201,113 @@
     margin-top: 54px;
 }
 
+.trek-filters {
+    margin: 0 0 56px;
+    padding: clamp(24px, 4vw, 38px);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    background: rgba(255,255,255,.76);
+    box-shadow: var(--shadow);
+}
+
+.trek-filters-heading h2 {
+    margin: 0 0 24px;
+    font-size: clamp(27px, 3vw, 38px);
+}
+
+.trek-filter-form {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) auto;
+    align-items: end;
+    gap: 14px;
+}
+
+.trek-filter-form label {
+    display: grid;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 850;
+}
+
+.trek-filter-form select {
+    width: 100%;
+    min-height: 46px;
+    padding: 10px 38px 10px 12px;
+    border: 1px solid rgba(19,36,27,.2);
+    border-radius: 12px;
+    background: #fff;
+    color: var(--text);
+    font: inherit;
+}
+
+.trek-filter-form select:focus-visible {
+    outline: 3px solid rgba(47,111,85,.28);
+    outline-offset: 2px;
+}
+
+.trek-filter-reset {
+    min-height: 46px;
+}
+
+.trek-filter-summary {
+    min-height: 24px;
+    margin: 18px 0 0;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 750;
+}
+
+.trek-card[hidden],
+.trek-catalogue-section[hidden] {
+    display: none;
+}
+
+.trek-group-empty,
+.trek-filter-empty {
+    padding: 26px;
+    border: 1px dashed rgba(19,36,27,.22);
+    border-radius: 18px;
+    background: rgba(255,255,255,.5);
+    color: var(--muted);
+}
+
+.trek-group-empty p,
+.trek-filter-empty {
+    margin: 0;
+}
+
+.trek-group-empty a {
+    display: inline-flex;
+    margin-top: 12px;
+    color: var(--accent2);
+    font-weight: 900;
+}
+
+.trek-filter-empty {
+    margin-top: 32px;
+}
+
+@media (max-width: 1000px) {
+    .trek-filter-form {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .trek-filter-reset {
+        justify-self: start;
+    }
+}
+
+@media (max-width: 620px) {
+    .trek-filter-form {
+        grid-template-columns: 1fr;
+    }
+
+    .trek-filter-reset {
+        width: 100%;
+    }
+}
+
 .trip-detail {
     margin: 34px auto 72px;
 }

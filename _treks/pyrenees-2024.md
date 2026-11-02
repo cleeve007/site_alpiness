@@ -1,0 +1,57 @@
+---
+title: "Les grands sites des Pyrénées"
+seo_title: "Trek dans les Pyrénées"
+seo_description: "Une inspiration de trek dans les Pyrénées autour de Cauterets, Gavarnie et du Pic du Midi de Bigorre."
+permalink: /treks/grands-sites-pyrenees/
+status: past
+order: 70
+destination: "Hautes-Pyrénées · France"
+eyebrow: "Cauterets · Gavarnie · Pic du Midi"
+summary: "Quatre randonnées pour découvrir des lacs glaciaires, le cirque de Gavarnie et les panoramas du Pic du Midi de Bigorre."
+card_summary: "Un séjour entre Cauterets, Gavarnie et le Pic du Midi, au cœur des grands paysages pyrénéens."
+duration: "5 jours"
+duration_days: 5
+level_label: "2 à 4/5"
+filter_level: mixed
+season: spring
+season_label: "Printemps"
+hero:
+  image: /assets/img/trek-pyrenees/hero-pyrenees.webp
+  alt: "Le cirque de Gavarnie entouré de hauts sommets pyrénéens"
+  position: center
+facts:
+  - label: "Dates réalisées"
+    value: "19-23 juin 2024"
+  - label: "Randonnée"
+    value: "4 jours"
+  - label: "Niveau"
+    value: "De 2 à 4 / 5 selon les journées"
+  - label: "Formule"
+    value: "Deux hébergements"
+introduction:
+  kicker: "Des sites naturels emblématiques"
+  title: "Quatre journées au paradis des randonneurs"
+  paragraphs:
+    - "Le programme reliait plusieurs grands sites des Hautes-Pyrénées : le lac d’Estom, le cirque de Gavarnie, le Pic du Midi de Bigorre et les villages autour de Luz-Saint-Sauveur."
+    - "La difficulté progressait au fil du séjour, avec une variante prévue pour adapter l’ascension du Pic du Midi."
+highlights:
+  - "Le lac glaciaire d’Estom"
+  - "Le cirque de Gavarnie classé au patrimoine mondial"
+  - "Le panorama du Pic du Midi de Bigorre"
+  - "Les villages de montagne du pays Toy"
+practical_kicker: "Projet déjà réalisé"
+practical_title: "Repères de l’itinéraire"
+practical:
+  - label: "Hébergement"
+    value: "Une nuit à Cauterets puis trois nuits à La Grange aux Marmottes à Viscos."
+  - label: "Randonnées"
+    value: "Quatre parcours de 10 à 13,2 km, avec des niveaux annoncés de 2 à 4 sur 5."
+  - label: "Point haut"
+    value: "Pic du Midi de Bigorre, 2 854 m, avec une variante au col des Laquets."
+cta:
+  kicker: "Cette aventure vous inspire ?"
+  title: "Organisons un trek similaire"
+  text: "Contactez-moi pour construire une nouvelle édition adaptée au niveau de votre groupe."
+  label: "Organiser un trek similaire"
+  url: /contact
+---

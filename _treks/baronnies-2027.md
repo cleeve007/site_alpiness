@@ -15,7 +15,12 @@ summary: "Quatre jours pour découvrir une Provence secrète, marcher entre crê
 card_summary: "Quatre jours de randonnée entre lavande, falaises et sommets au cœur des Baronnies provençales."
 card_date: "19-23 ou 26-30 mai 2027"
 duration: "4 jours"
+duration_days: 4
 level: 3
+filter_level: "3"
+season: spring
+season_label: "Printemps"
+card_price: "À partir de 880 € / pers."
 hero:
   image: /assets/img/trek-baronnies-2027/hero-baronnies-hd.jpg
   alt: "Reliefs des Baronnies provençales et champs de lavande"

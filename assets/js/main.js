@@ -66,7 +66,7 @@ function setupActiveNav() {
         "preparation-physique-trek": "preparer-un-objectif",
         "observation-marmottes": "decouverte-du-patrimoine",
     };
-    const navPage = parentPages[currentPage] || currentPage;
+    const navPage = window.location.pathname.startsWith("/treks/") ? "treks" : (parentPages[currentPage] || currentPage);
     if (currentPage === "contact") document.body.classList.add("is-contact-page");
     document.querySelectorAll(".nav-list a[href]").forEach((link) => {
         const href = link.getAttribute("href");
@@ -76,10 +76,49 @@ function setupActiveNav() {
     });
 }
 
+function setupTrekFilters() {
+    const form = document.querySelector("#trek-filter-form");
+    if (!form) return;
+
+    const cards = [...document.querySelectorAll("[data-trek-card]")];
+    const groups = [...document.querySelectorAll("[data-trek-group]")];
+    const summary = document.querySelector("#trek-filter-summary");
+    const empty = document.querySelector("#trek-filter-empty");
+
+    const applyFilters = () => {
+        const values = Object.fromEntries(new FormData(form).entries());
+        let visibleCount = 0;
+
+        cards.forEach((card) => {
+            const matches = ["level", "duration", "season", "status"].every((key) => !values[key] || card.dataset[key] === values[key]);
+            card.hidden = !matches;
+            if (matches) visibleCount += 1;
+        });
+
+        groups.forEach((group) => {
+            const groupCards = [...group.querySelectorAll("[data-trek-card]")];
+            if (groupCards.length) {
+                group.hidden = !groupCards.some((card) => !card.hidden);
+                return;
+            }
+            const otherFiltersActive = values.level || values.duration || values.season;
+            group.hidden = Boolean(otherFiltersActive) || Boolean(values.status && values.status !== group.dataset.trekGroup);
+        });
+
+        if (summary) summary.textContent = `${visibleCount} trek${visibleCount > 1 ? "s" : ""} affiché${visibleCount > 1 ? "s" : ""}`;
+        if (empty) empty.hidden = visibleCount > 0 || groups.some((group) => !group.hidden && !group.querySelector("[data-trek-card]"));
+    };
+
+    form.addEventListener("change", applyFilters);
+    form.addEventListener("reset", () => window.setTimeout(applyFilters, 0));
+    applyFilters();
+}
+
 (async () => {
     await injectPartial("#header-slot", "/partials/header.html");
     await injectPartial("#footer-slot", "/partials/footer.html");
     setupNav();
     setupActiveNav();
     setupFooterYear();
+    setupTrekFilters();
 })();

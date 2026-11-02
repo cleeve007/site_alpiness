@@ -32,41 +32,73 @@ permalink: /treks/
     {% assign requested_treks = sorted_treks | where: "status", "on-request" %}
     {% assign past_treks = sorted_treks | where: "status", "past" %}
 
-    {% if upcoming_treks.size > 0 %}
-      <section class="trek-catalogue-section" id="prochains-departs" aria-labelledby="treks-upcoming-title">
+    <section class="trek-filters" aria-labelledby="trek-filters-title">
+      <div class="trek-filters-heading">
+        <p class="trip-section-kicker">Affiner la sélection</p>
+        <h2 id="trek-filters-title">Trouver un trek</h2>
+      </div>
+      <form class="trek-filter-form" id="trek-filter-form">
+        <label>Niveau
+          <select name="level">
+            <option value="">Tous les niveaux</option>
+            <option value="3">Niveau 3/5</option>
+            <option value="mixed">Niveaux variables</option>
+            <option value="unknown">À confirmer</option>
+          </select>
+        </label>
+        <label>Durée
+          <select name="duration">
+            <option value="">Toutes les durées</option>
+            <option value="4">4 jours</option>
+            <option value="5">5 jours</option>
+            <option value="6">6 jours</option>
+          </select>
+        </label>
+        <label>Saison
+          <select name="season">
+            <option value="">Toutes les saisons</option>
+            <option value="spring">Printemps</option>
+            <option value="autumn">Automne</option>
+          </select>
+        </label>
+        <label>Statut
+          <select name="status">
+            <option value="">Tous les statuts</option>
+            <option value="upcoming">Prochain départ</option>
+            <option value="on-request">Sur demande</option>
+            <option value="past">Trek passé</option>
+          </select>
+        </label>
+        <button class="btn trek-filter-reset" type="reset">Réinitialiser</button>
+      </form>
+      <p class="trek-filter-summary" id="trek-filter-summary" aria-live="polite"></p>
+    </section>
+
+      <section class="trek-catalogue-section" id="prochains-departs" data-trek-group="upcoming" aria-labelledby="treks-upcoming-title">
         <div class="trek-catalogue-heading">
           <p class="trip-section-kicker">À vos agendas</p>
           <h2 id="treks-upcoming-title">Les prochains départs</h2>
         </div>
-        <div class="trek-card-grid">
-          {% for trek in upcoming_treks %}{% include trek-card.html trek=trek %}{% endfor %}
-        </div>
+        {% if upcoming_treks.size > 0 %}<div class="trek-card-grid">{% for trek in upcoming_treks %}{% include trek-card.html trek=trek %}{% endfor %}</div>{% else %}<div class="trek-group-empty"><p>Aucun prochain départ n’est publié pour le moment.</p><a href="/contact">Être informé des prochains séjours</a></div>{% endif %}
       </section>
-    {% endif %}
 
-    {% if requested_treks.size > 0 %}
-      <section class="trek-catalogue-section" id="treks-sur-demande" aria-labelledby="treks-request-title">
+      <section class="trek-catalogue-section" id="treks-sur-demande" data-trek-group="on-request" aria-labelledby="treks-request-title">
         <div class="trek-catalogue-heading">
           <p class="trip-section-kicker">À construire ensemble</p>
-          <h2 id="treks-request-title">Des aventures à organiser ensemble</h2>
+          <h2 id="treks-request-title">Les treks sur demande</h2>
         </div>
-        <div class="trek-card-grid">
-          {% for trek in requested_treks %}{% include trek-card.html trek=trek %}{% endfor %}
-        </div>
+        {% if requested_treks.size > 0 %}<div class="trek-card-grid">{% for trek in requested_treks %}{% include trek-card.html trek=trek %}{% endfor %}</div>{% else %}<div class="trek-group-empty"><p>Ces séjours seront ajoutés au fil de la refonte. Vous pouvez déjà construire une aventure adaptée à votre groupe.</p><a href="/contact">Construire un trek sur mesure</a></div>{% endif %}
       </section>
-    {% endif %}
 
-    {% if past_treks.size > 0 %}
-      <section class="trek-catalogue-section" id="treks-realises" aria-labelledby="treks-past-title">
+      <section class="trek-catalogue-section" id="treks-realises" data-trek-group="past" aria-labelledby="treks-past-title">
         <div class="trek-catalogue-heading">
           <p class="trip-section-kicker">Inspirations</p>
-          <h2 id="treks-past-title">Ils peuvent devenir votre prochaine aventure</h2>
+          <h2 id="treks-past-title">Inspirations et treks déjà réalisés</h2>
         </div>
-        <div class="trek-card-grid">
-          {% for trek in past_treks %}{% include trek-card.html trek=trek %}{% endfor %}
-        </div>
+        {% if past_treks.size > 0 %}<div class="trek-card-grid">{% for trek in past_treks %}{% include trek-card.html trek=trek %}{% endfor %}</div>{% else %}<div class="trek-group-empty"><p>Les précédentes aventures seront bientôt présentées ici.</p></div>{% endif %}
       </section>
-    {% endif %}
+
+    <p class="trek-filter-empty" id="trek-filter-empty" hidden>Aucun trek ne correspond à ces critères. Essayez de modifier ou de réinitialiser les filtres.</p>
 
     <section class="trip-cta trek-catalogue-cta">
       <div>
