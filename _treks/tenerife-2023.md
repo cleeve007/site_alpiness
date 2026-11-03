@@ -1,8 +1,13 @@
 ---
 title: "Tenerife volcanique"
-seo_title: "Trek à Tenerife"
-seo_description: "Une inspiration de trek à Tenerife entre le parc de Teno, le Teide et les forêts d’Anaga."
+seo_title: "Trek à Tenerife - Teno, Teide et Anaga"
+seo_description: "Découvrez un trek de 6 jours à Tenerife entre le ravin de Masca, les paysages volcaniques du Teide, les forêts d’Anaga et les villes coloniales."
+og_title: "Trek à Tenerife - Teno, Teide et Anaga"
 permalink: /treks/tenerife-volcanique/
+redirect_from:
+  - /trek-tenerife/
+  - /trek-tenerife.html
+  - /trek-tenerife-volcanique/
 status: past
 order: 80
 destination: "Tenerife · Îles Canaries"
@@ -19,6 +24,8 @@ hero:
   image: /assets/img/trek-tenerife/hero-banner.webp
   alt: "Randonneur sur un sentier volcanique bordé de cactus au-dessus de l’océan à Tenerife"
   position: center
+  width: 1200
+  height: 525
 card_image: /assets/img/trek-tenerife/card.webp
 card_image_alt: "Randonneur sur un sentier côtier entre relief volcanique, cactus et océan à Tenerife"
 facts:

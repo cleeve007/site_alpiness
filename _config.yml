@@ -1,4 +1,7 @@
 url: "https://alpinessenoisans.com"
+title: "Alpiness en Oisans"
+description: "Treks, randonnées accompagnées et séjours sur mesure dans les Alpes et ailleurs."
+lang: fr-FR
 
 plugins:
   - jekyll-redirect-from

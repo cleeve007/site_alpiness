@@ -1,21 +1,52 @@
 ---
 permalink: /treks/
+redirect_from:
+  - /treks.html
 ---
+{% assign sorted_treks = site.treks | sort: "order" %}
+{% assign upcoming_treks = sorted_treks | where: "status", "upcoming" %}
+{% assign requested_treks = sorted_treks | where: "status", "on-request" %}
+{% assign past_treks = sorted_treks | where: "status", "past" %}
 <!doctype html>
 <html lang="fr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Les treks - Alpiness en Oisans</title>
-  <meta name="description" content="Découvrez les prochains treks, les séjours sur demande et les aventures déjà réalisées avec Alpiness en Oisans.">
+  <title>Treks et randonnées accompagnées - Alpiness en Oisans</title>
+  <meta name="description" content="Découvrez les prochains treks, les séjours sur demande et les aventures déjà réalisées avec Alpiness en Oisans, dans les Alpes et ailleurs.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://alpinessenoisans.com/treks/">
+  <meta property="og:title" content="Treks et randonnées accompagnées - Alpiness en Oisans">
+  <meta property="og:description" content="Découvrez les prochains départs, les treks sur demande et les aventures déjà réalisées avec Alpiness en Oisans.">
+  <meta property="og:url" content="https://alpinessenoisans.com/treks/">
+  <meta property="og:site_name" content="Alpiness en Oisans">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://alpinessenoisans.com/assets/img/hero.jpg">
+  <meta property="og:image:alt" content="Randonneurs dans un paysage de montagne en Oisans">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="/assets/css/styles.css">
   <link rel="icon" href="/assets/img/favicon-64.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Les treks Alpiness en Oisans",
+    "url": "https://alpinessenoisans.com/treks/",
+    "numberOfItems": {{ sorted_treks.size }},
+    "itemListElement": [
+      {% for trek in sorted_treks %}
+        {"@type": "ListItem", "position": {{ forloop.index }}, "name": {{ trek.title | jsonify }}, "url": {{ trek.url | absolute_url | jsonify }}}{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]
+  }
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Aller au contenu principal</a>
   <div id="header-slot"></div>
 
-  <main class="container trek-catalogue">
+  <main class="container trek-catalogue" id="main-content" tabindex="-1">
     <header class="trek-catalogue-hero">
       <p class="trip-section-kicker">Marcher · découvrir · partager</p>
       <h1>Les treks</h1>
@@ -26,11 +57,6 @@ permalink: /treks/
         {% include trek-status.html status="past" %}
       </div>
     </header>
-
-    {% assign sorted_treks = site.treks | sort: "order" %}
-    {% assign upcoming_treks = sorted_treks | where: "status", "upcoming" %}
-    {% assign requested_treks = sorted_treks | where: "status", "on-request" %}
-    {% assign past_treks = sorted_treks | where: "status", "past" %}
 
     <section class="trek-filters" aria-labelledby="trek-filters-title">
       <div class="trek-filters-heading">

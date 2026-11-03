@@ -9,7 +9,7 @@
   {% assign trek_card_alt = trek.card_image_alt | default: trek.hero.alt | default: trek.title %}
   {% if trek_card_image %}
     <a class="trek-card-media" href="{{ trek.url | relative_url }}" aria-label="Découvrir {{ trek.title }}">
-      <img src="{{ trek_card_image | relative_url }}" alt="{{ trek_card_alt }}" loading="lazy">
+      <img src="{{ trek_card_image | relative_url }}" alt="{{ trek_card_alt }}" width="800" height="500" loading="lazy" decoding="async">
     </a>
   {% endif %}
 

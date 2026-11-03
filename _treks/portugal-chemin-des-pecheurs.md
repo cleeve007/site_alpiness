@@ -1,8 +1,12 @@
 ---
 title: "Le chemin des pêcheurs"
 seo_title: "Trek au Portugal - Chemin des pêcheurs"
-seo_description: "Une inspiration de trek sur le littoral atlantique du Portugal, entre Alentejo et Algarve."
+seo_description: "Découvrez un trek de 6 jours sur le chemin des pêcheurs au Portugal, avec 4 jours de randonnée entre falaises, plages et villages de l’Alentejo."
+og_title: "Trek au Portugal - Le chemin des pêcheurs"
 permalink: /treks/portugal-chemin-des-pecheurs/
+redirect_from:
+  - /trek-portugal-chemin-des-pecheurs/
+  - /trek-portugal-chemin-des-pecheurs.html
 status: past
 order: 30
 destination: "Alentejo et Algarve · Portugal"
@@ -19,6 +23,8 @@ hero:
   image: /assets/img/trek-portugal/hero-portugal.webp
   alt: "Randonneur sur le chemin des pêcheurs dominant les falaises et l’océan Atlantique"
   position: center
+  width: 484
+  height: 337
 card_image: /assets/img/trek-portugal/card.webp
 card_image_alt: "Randonneur vu de dos sur le sentier côtier au-dessus de l’océan au Portugal"
 facts:

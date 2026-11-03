@@ -1,19 +1,73 @@
 <!doctype html>
 <html lang="fr">
 <head>
+  {% assign seo_description = page.seo_description | default: page.summary %}
+  {% assign canonical_url = page.url | absolute_url %}
+  {% assign og_image_url = page.hero.image | absolute_url %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ page.seo_title | default: page.title }} - Alpiness en Oisans</title>
-  {% if page.seo_description or page.summary %}<meta name="description" content="{{ page.seo_description | default: page.summary | escape }}">{% endif %}
-  <link rel="canonical" href="{{ page.url | absolute_url }}">
-  <meta property="og:title" content="{{ page.og_title | default: page.title | escape }}">
-  {% if page.seo_description or page.summary %}<meta property="og:description" content="{{ page.seo_description | default: page.summary | escape }}">{% endif %}
-  {% if page.hero.image %}<meta property="og:image" content="{{ page.hero.image | absolute_url }}">{% endif %}
+  <title>{{ page.seo_title | default: page.title | escape }}</title>
+  {% if seo_description %}<meta name="description" content="{{ seo_description | escape }}">{% endif %}
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="{{ canonical_url }}">
+  {% if page.hero.image %}<link rel="preload" as="image" href="{{ og_image_url }}" fetchpriority="high">{% endif %}
+  <meta property="og:title" content="{{ page.og_title | default: page.seo_title | default: page.title | escape }}">
+  {% if seo_description %}<meta property="og:description" content="{{ seo_description | escape }}">{% endif %}
+  <meta property="og:url" content="{{ canonical_url }}">
+  <meta property="og:site_name" content="Alpiness en Oisans">
+  <meta property="og:locale" content="fr_FR">
+  {% if page.hero.image %}
+    <meta property="og:image" content="{{ og_image_url }}">
+    <meta property="og:image:secure_url" content="{{ og_image_url }}">
+    <meta property="og:image:type" content="image/webp">
+    {% if page.hero.width %}<meta property="og:image:width" content="{{ page.hero.width }}">{% endif %}
+    {% if page.hero.height %}<meta property="og:image:height" content="{{ page.hero.height }}">{% endif %}
+    {% if page.hero.alt %}<meta property="og:image:alt" content="{{ page.hero.alt | escape }}">{% endif %}
+  {% endif %}
   <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page.og_title | default: page.seo_title | default: page.title | escape }}">
+  {% if seo_description %}<meta name="twitter:description" content="{{ seo_description | escape }}">{% endif %}
+  {% if page.hero.image %}<meta name="twitter:image" content="{{ og_image_url }}">{% endif %}
   <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
   <link rel="icon" href="{{ '/assets/img/favicon-64.png' | relative_url }}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TouristTrip",
+        "@id": {{ canonical_url | append: "#tourist-trip" | jsonify }},
+        "name": {{ page.title | jsonify }},
+        "description": {{ seo_description | jsonify }},
+        "url": {{ canonical_url | jsonify }},
+        "image": {{ og_image_url | jsonify }},
+        "inLanguage": "fr-FR",
+        "touristType": "Randonnée pédestre accompagnée",
+        {% if page.destination %}"itinerary": {"@type": "Place", "name": {{ page.destination | jsonify }}},{% endif %}
+        "provider": {
+          "@type": "Organization",
+          "@id": "https://alpinessenoisans.com/#organization",
+          "name": "Alpiness en Oisans",
+          "url": "https://alpinessenoisans.com/"
+        },
+        "mainEntityOfPage": {"@type": "WebPage", "@id": {{ canonical_url | jsonify }}}
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": {{ canonical_url | append: "#breadcrumb" | jsonify }},
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://alpinessenoisans.com/randonnees/"},
+          {"@type": "ListItem", "position": 2, "name": "Les treks", "item": "https://alpinessenoisans.com/treks/"},
+          {"@type": "ListItem", "position": 3, "name": {{ page.title | jsonify }}, "item": {{ canonical_url | jsonify }}}
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Aller au contenu principal</a>
   <div id="header-slot"></div>
 
   {% case page.status %}
@@ -30,7 +84,7 @@
   {% assign cta_label = page.cta.label | default: default_cta_label %}
   {% assign cta_url = page.cta.url | default: default_cta_url %}
 
-  <main class="container trip-detail">
+  <main class="container trip-detail" id="main-content" tabindex="-1">
     <a class="trip-back" href="{{ '/treks/' | relative_url }}">← Retour aux treks</a>
 
     <section class="trip-hero{% unless page.hero.image %} trip-hero--plain{% endunless %}"{% if page.hero.image %} style="--trip-hero-image: url('{{ page.hero.image | relative_url }}'); --trip-hero-position: {{ page.hero.position | default: 'center' }};"{% endif %}>
@@ -42,7 +96,7 @@
         {% if page.summary %}<p class="trip-lead">{{ page.summary }}</p>{% endif %}
         <div class="hero-actions">
           <a class="btn primary" href="{{ cta_url | relative_url }}">{{ cta_label }}</a>
-          {% if page.pdf_url %}<a class="btn" href="{{ page.pdf_url | relative_url }}" target="_blank" rel="noopener">{{ page.pdf_label | default: "Télécharger la présentation" }}</a>{% endif %}
+          {% if page.pdf_url %}<a class="btn" href="{{ page.pdf_url | relative_url }}" target="_blank" rel="noopener">{{ page.pdf_label | default: "Télécharger la présentation" }}<span class="sr-only"> (ouvre dans un nouvel onglet)</span></a>{% endif %}
         </div>
       </div>
     </section>
@@ -56,7 +110,7 @@
               <strong>{{ fact.value }}</strong>
               {% if fact.level %}
                 <span class="trip-level" aria-label="Niveau {{ fact.level }} sur 5">
-                  {% for step in (1..5) %}<i{% if step > fact.level %} class="empty"{% endif %}></i>{% endfor %}
+                  {% for step in (1..5) %}<i aria-hidden="true"{% if step > fact.level %} class="empty"{% endif %}></i>{% endfor %}
                 </span>
               {% endif %}
             </div>
@@ -84,7 +138,7 @@
     {% if page.gallery and page.gallery.size > 0 %}
       <section class="trip-gallery" aria-label="Paysages du trek">
         {% for image in page.gallery %}
-          {% if image.src %}<img src="{{ image.src | relative_url }}" alt="{{ image.alt | default: page.title }}"{% if image.width %} width="{{ image.width }}"{% endif %}{% if image.height %} height="{{ image.height }}"{% endif %} loading="lazy">{% endif %}
+          {% if image.src %}<img src="{{ image.src | relative_url }}" alt="{{ image.alt | default: page.title }}"{% if image.width %} width="{{ image.width }}"{% endif %}{% if image.height %} height="{{ image.height }}"{% endif %} loading="lazy" decoding="async">{% endif %}
         {% endfor %}
       </section>
     {% endif %}
@@ -99,7 +153,7 @@
         <div class="trip-route-layout">
           {% if page.route.image %}
             <figure class="trip-route-map">
-              <img src="{{ page.route.image | relative_url }}" alt="{{ page.route.image_alt | default: page.route.title }}" loading="lazy">
+              <img src="{{ page.route.image | relative_url }}" alt="{{ page.route.image_alt | default: page.route.title }}" loading="lazy" decoding="async">
             </figure>
           {% endif %}
           {% if page.route.stats and page.route.stats.size > 0 %}
@@ -126,7 +180,7 @@
             <article class="trip-stay-card">
               {% if stay.images and stay.images.size > 0 %}
                 <div class="trip-stay-gallery">
-                  {% for image in stay.images %}{% if image.src %}<img src="{{ image.src | relative_url }}" alt="{{ image.alt | default: stay.title }}" loading="lazy">{% endif %}{% endfor %}
+                  {% for image in stay.images %}{% if image.src %}<img src="{{ image.src | relative_url }}" alt="{{ image.alt | default: stay.title }}" loading="lazy" decoding="async">{% endif %}{% endfor %}
                 </div>
               {% endif %}
               <div class="trip-stay-copy">
@@ -159,6 +213,19 @@
         </div>
       </section>
     {% endif %}
+
+    <nav class="trip-related" aria-labelledby="trip-related-title">
+      <div>
+        <p class="trip-section-kicker">Pour aller plus loin</p>
+        <h2 id="trip-related-title">Préparer votre prochaine aventure</h2>
+      </div>
+      <ul>
+        <li><a href="{{ '/treks/' | relative_url }}">Découvrir tous les treks</a></li>
+        <li><a href="{{ '/preparer-un-objectif' | relative_url }}">Préparer un objectif en montagne</a></li>
+        <li><a href="{{ '/formation-orientation' | relative_url }}">Devenir autonome en orientation</a></li>
+        <li><a href="{{ '/vivre-une-aventure' | relative_url }}">Voir les randonnées à la journée</a></li>
+      </ul>
+    </nav>
 
     <section class="trip-cta">
       <div>

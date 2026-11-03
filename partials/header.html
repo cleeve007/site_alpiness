@@ -1,23 +1,23 @@
 <header class="site-header">
     <div class="container header-inner">
-        <a class="brand" href="/randonnees/" aria-label="Accueil">
-            <img class="brand-logo" src="/assets/img/logo-144.webp" alt="Logo Alpiness en Oisans" width="60" height="60">
+        <a class="brand" href="/randonnees/" aria-label="Accueil - Alpiness en Oisans">
+            <img class="brand-logo" src="/assets/img/logo-144.webp" alt="" width="60" height="60">
             <span class="brand-name">Alpiness En Oisans</span>
         </a>
 
 
-        <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
             Menu
         </button>
 
-        <nav id="site-nav" class="nav">
+        <nav id="site-nav" class="nav" aria-label="Navigation principale">
             <ul class="nav-list">
                 <li><a href="/treks/">Les treks</a></li>
                 <li><a href="/vivre-une-aventure">Randonnées à la journée</a></li>
                 <li><a href="/preparer-un-objectif">Préparer un objectif</a></li>
                 <li class="has-submenu">
-                    <button class="submenu-toggle" type="button" aria-expanded="false">Découvrir l’Oisans</button>
-                    <ul class="submenu">
+                    <button class="submenu-toggle" type="button" aria-expanded="false" aria-controls="oisans-submenu">Découvrir l’Oisans</button>
+                    <ul class="submenu" id="oisans-submenu">
                         <li><a href="/decouverte-du-patrimoine">Nature et patrimoine</a></li>
                         <li><a href="/observation-marmottes">Observation des marmottes</a></li>
                         <li><a href="/hebergement">Hébergement</a></li>
@@ -27,8 +27,8 @@
 
                 <li class="cta"><a href="/contact">Contact</a></li>
                 <li>
-                    <a class="nav-linkedin" href="https://www.linkedin.com/in/nicolas-richard-5b68a910/" target="_blank" rel="noopener" aria-label="LinkedIn">
-                        <img src="/assets/img/linkedin.webp" alt="LinkedIn" width="40" height="40">
+                    <a class="nav-linkedin" href="https://www.linkedin.com/in/nicolas-richard-5b68a910/" target="_blank" rel="noopener" aria-label="LinkedIn (ouvre dans un nouvel onglet)">
+                        <img src="/assets/img/linkedin.webp" alt="" width="40" height="40">
                     </a>
                 </li>
             </ul>

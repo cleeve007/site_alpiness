@@ -37,11 +37,31 @@ function setupNav() {
         });
     }
 
-    document.querySelectorAll(".submenu-toggle").forEach((btn) => {
+    const submenuButtons = [...document.querySelectorAll(".submenu-toggle")];
+    const closeSubmenu = (btn, restoreFocus = false) => {
+        btn.setAttribute("aria-expanded", "false");
+        btn.parentElement.classList.remove("submenu-open");
+        if (restoreFocus) btn.focus();
+    };
+
+    submenuButtons.forEach((btn) => {
         btn.addEventListener("click", () => {
             const isOpen = btn.getAttribute("aria-expanded") === "true";
+            submenuButtons.filter((other) => other !== btn).forEach((other) => closeSubmenu(other));
             btn.setAttribute("aria-expanded", String(!isOpen));
             btn.parentElement.classList.toggle("submenu-open", !isOpen);
+        });
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+        const openButton = submenuButtons.find((btn) => btn.getAttribute("aria-expanded") === "true");
+        if (openButton) closeSubmenu(openButton, true);
+    });
+
+    document.addEventListener("click", (event) => {
+        submenuButtons.forEach((btn) => {
+            if (btn.getAttribute("aria-expanded") === "true" && !btn.parentElement.contains(event.target)) closeSubmenu(btn);
         });
     });
 }

@@ -1,8 +1,8 @@
 ---
 title: "Trek des Baronnies"
-seo_title: "Trek des Baronnies 2027"
-seo_description: "Deux séjours de quatre jours de randonnée dans les Baronnies provençales en mai 2027, avec deux camps de base au choix."
-og_title: "Trek des Baronnies - Mai 2027"
+seo_title: "Trek des Baronnies 2027 - Randonnée accompagnée"
+seo_description: "Trek accompagné de 4 jours dans les Baronnies provençales, du 19 au 23 ou du 26 au 30 mai 2027, avec deux camps de base au choix."
+og_title: "Trek des Baronnies 2027 - 4 jours de randonnée"
 permalink: /treks/baronnies-2027/
 redirect_from:
   - /trek-baronnies-2027/
@@ -25,6 +25,8 @@ hero:
   image: /assets/img/trek-baronnies-2027/hero-banner.webp
   alt: "Reliefs boisés des Baronnies provençales dominant des rangées de lavande au soleil"
   position: center
+  width: 1600
+  height: 700
 card_image: /assets/img/trek-baronnies-2027/card.webp
 card_image_alt: "Champ de lavande face aux reliefs des Baronnies provençales"
 pdf_url: /assets/docs/trek-des-baronnies-mai-2027.pdf

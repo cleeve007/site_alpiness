@@ -1,8 +1,12 @@
 ---
 title: "Le Mont Olympe"
-seo_title: "Trek au Mont Olympe en Grèce"
-seo_description: "Une inspiration de trek itinérant sur le Mont Olympe, entre gorges, refuges et hauts sommets grecs."
+seo_title: "Trek au Mont Olympe - Refuges et sommets de Grèce"
+seo_description: "Découvrez un trek de 6 jours au Mont Olympe, avec 4 jours de randonnée entre les gorges d’Enipea, les refuges d’altitude et les sommets grecs."
+og_title: "Trek au Mont Olympe - Refuges et sommets"
 permalink: /treks/mont-olympe/
+redirect_from:
+  - /trek-mont-olympe/
+  - /trek-mont-olympe.html
 status: past
 order: 50
 destination: "Mont Olympe · Grèce"
@@ -19,6 +23,8 @@ hero:
   image: /assets/img/trek-mont-olympe/hero-mont-olympe.webp
   alt: "Randonneur progressant sur une crête rocheuse face aux sommets du Mont Olympe"
   position: center
+  width: 600
+  height: 368
 card_image: /assets/img/trek-mont-olympe/card.webp
 card_image_alt: "Randonneur sur la crête rocheuse du Mont Olympe, sommet visible à gauche"
 facts:

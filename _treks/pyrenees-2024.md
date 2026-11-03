@@ -1,8 +1,13 @@
 ---
 title: "Les grands sites des Pyrénées"
-seo_title: "Trek dans les Pyrénées"
-seo_description: "Une inspiration de trek dans les Pyrénées autour de Cauterets, Gavarnie et du Pic du Midi de Bigorre."
+seo_title: "Trek dans les Pyrénées - Gavarnie et Pic du Midi"
+seo_description: "Découvrez un trek de 5 jours dans les Hautes-Pyrénées, avec 4 randonnées autour de Cauterets, du cirque de Gavarnie et du Pic du Midi."
+og_title: "Trek dans les Pyrénées - Gavarnie et Pic du Midi"
 permalink: /treks/grands-sites-pyrenees/
+redirect_from:
+  - /trek-pyrenees-2024/
+  - /trek-pyrenees-2024.html
+  - /trek-grands-sites-pyrenees/
 status: past
 order: 70
 destination: "Hautes-Pyrénées · France"
@@ -19,6 +24,8 @@ hero:
   image: /assets/img/trek-pyrenees/hero-banner.webp
   alt: "Grande cascade du cirque de Gavarnie tombant au pied des parois pyrénéennes"
   position: center
+  width: 1200
+  height: 525
 card_image: /assets/img/trek-pyrenees/card.webp
 card_image_alt: "Cascade et hautes parois rocheuses du cirque de Gavarnie dans les Pyrénées"
 facts:

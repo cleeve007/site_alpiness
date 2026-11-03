@@ -1,8 +1,12 @@
 ---
 title: "Le cœur du Pays Basque"
-seo_title: "Trek au Pays Basque"
-seo_description: "Une inspiration de trek au Pays Basque, entre sommets des Pyrénées atlantiques, villages et traditions."
+seo_title: "Trek au Pays Basque - Pyrénées atlantiques"
+seo_description: "Découvrez un trek de 5 jours au Pays Basque avec 4 randonnées entre crêtes frontalières, villages de caractère et panoramas des Pyrénées atlantiques."
+og_title: "Trek au Pays Basque - Crêtes et villages"
 permalink: /treks/pays-basque/
+redirect_from:
+  - /trek-pays-basque/
+  - /trek-pays-basque.html
 status: past
 order: 60
 destination: "Pyrénées atlantiques · Pays Basque"
@@ -19,6 +23,8 @@ hero:
   image: /assets/img/trek-pays-basque/hero-banner.webp
   alt: "Panorama sur les vallées verdoyantes et les reliefs montagneux du Pays Basque"
   position: center
+  width: 1200
+  height: 525
 card_image: /assets/img/trek-pays-basque/card.webp
 card_image_alt: "Vallées vertes et chaîne des Pyrénées atlantiques sous un ciel bleu"
 facts:

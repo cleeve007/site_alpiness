@@ -1,8 +1,12 @@
 ---
 title: "Majorque - Es Blau"
-seo_title: "Trek à Majorque - Es Blau"
-seo_description: "Une inspiration de trek en étoile à Majorque, entre Serra de Tramuntana, criques et reliefs calcaires."
+seo_title: "Trek à Majorque - Criques et Serra de Tramuntana"
+seo_description: "Découvrez un trek de 6 jours à Majorque avec 4 randonnées entre criques sauvages, reliefs calcaires et sentiers de la Serra de Tramuntana."
+og_title: "Trek à Majorque - Criques et Serra de Tramuntana"
 permalink: /treks/majorque-es-blau/
+redirect_from:
+  - /trek-majorque-es-blau/
+  - /trek-majorque-es-blau.html
 status: past
 order: 40
 destination: "Majorque · Îles Baléares"
@@ -19,6 +23,8 @@ hero:
   image: /assets/img/trek-majorque/hero-banner.webp
   alt: "Crique turquoise encaissée entre de hautes falaises calcaires à Majorque"
   position: center
+  width: 1400
+  height: 613
 card_image: /assets/img/trek-majorque/card.webp
 card_image_alt: "Eau turquoise et falaises calcaires d’une crique sauvage de Majorque"
 facts:
