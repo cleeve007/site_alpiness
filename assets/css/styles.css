@@ -2425,13 +2425,32 @@ main {
 }
 
 .home-engagements article {
-    display: grid;
-    place-items: center;
-    min-height: 86px;
-    padding: 18px;
+    position: relative;
+    min-height: 144px;
+    padding: 26px 24px 24px;
     border: 1px solid rgba(47,111,85,.14);
     border-radius: 18px;
     background: rgba(255,255,255,.68);
+    box-shadow: 0 10px 24px rgba(24,54,39,.06);
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.home-engagements article::before {
+    content: "";
+    display: block;
+    width: 34px;
+    height: 4px;
+    margin-bottom: 17px;
+    border-radius: 999px;
+    background: var(--accent);
+}
+
+@media (hover: hover) {
+    .home-engagements article:hover {
+        transform: translateY(-3px);
+        border-color: rgba(47,111,85,.28);
+        box-shadow: 0 14px 30px rgba(24,54,39,.11);
+    }
 }
 
 .home-engagements strong,
@@ -2440,15 +2459,15 @@ main {
 }
 
 .home-engagements strong {
-    margin-bottom: 0;
+    margin-bottom: 9px;
     color: var(--accent2);
     font-size: 18px;
-    text-align: center;
 }
 
 .home-engagements span {
     color: var(--muted);
-    line-height: 1.55;
+    font-size: 15px;
+    line-height: 1.5;
 }
 
 .home-approach-details {
@@ -2691,6 +2710,11 @@ main {
     .home-approach-content,
     .home-secondary-grid {
         grid-template-columns: 1fr;
+    }
+
+    .home-engagements article {
+        min-height: 0;
+        padding: 22px;
     }
 
     .home-trek-path {
