@@ -1,0 +1,142 @@
+---
+permalink: /treks/
+redirect_from:
+  - /treks.html
+---
+{% assign sorted_treks = site.treks | sort: "order" %}
+{% assign upcoming_treks = sorted_treks | where: "status", "upcoming" %}
+{% assign requested_treks = sorted_treks | where: "status", "on-request" %}
+{% assign past_treks = sorted_treks | where: "status", "past" %}
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Treks et randonnées accompagnées - Alpiness en Oisans</title>
+  <meta name="description" content="Découvrez les prochains treks, les séjours sur demande et les aventures déjà réalisées avec Alpiness en Oisans, dans les Alpes et ailleurs.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://alpinessenoisans.com/treks/">
+  <meta property="og:title" content="Treks et randonnées accompagnées - Alpiness en Oisans">
+  <meta property="og:description" content="Découvrez les prochains départs, les treks sur demande et les aventures déjà réalisées avec Alpiness en Oisans.">
+  <meta property="og:url" content="https://alpinessenoisans.com/treks/">
+  <meta property="og:site_name" content="Alpiness en Oisans">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://alpinessenoisans.com/assets/img/hero.jpg">
+  <meta property="og:image:alt" content="Randonneurs dans un paysage de montagne en Oisans">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="icon" href="/assets/img/favicon-64.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Les treks Alpiness en Oisans",
+    "url": "https://alpinessenoisans.com/treks/",
+    "numberOfItems": {{ sorted_treks.size }},
+    "itemListElement": [
+      {% for trek in sorted_treks %}
+        {"@type": "ListItem", "position": {{ forloop.index }}, "name": {{ trek.title | jsonify }}, "url": {{ trek.url | absolute_url | jsonify }}}{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Aller au contenu principal</a>
+  <div id="header-slot"></div>
+
+  <main class="container trek-catalogue" id="main-content" tabindex="-1">
+    <header class="trek-catalogue-hero">
+      <p class="trip-section-kicker">Marcher · découvrir · partager</p>
+      <h1>Les treks</h1>
+      <p>Des séjours accompagnés pour prendre le temps de parcourir un territoire, rencontrer ses paysages et vivre la montagne en petit groupe.</p>
+      <div class="trek-status-legend" aria-label="Statuts des treks">
+        {% include trek-status.html status="upcoming" %}
+        {% include trek-status.html status="on-request" %}
+        {% include trek-status.html status="past" %}
+      </div>
+    </header>
+
+    <section class="trek-filters" aria-labelledby="trek-filters-title">
+      <div class="trek-filters-heading">
+        <p class="trip-section-kicker">Affiner la sélection</p>
+        <h2 id="trek-filters-title">Trouver un trek</h2>
+      </div>
+      <form class="trek-filter-form" id="trek-filter-form">
+        <label>Niveau
+          <select name="level">
+            <option value="">Tous les niveaux</option>
+            <option value="3">Niveau 3/5</option>
+            <option value="mixed">Niveaux variables</option>
+            <option value="unknown">À confirmer</option>
+          </select>
+        </label>
+        <label>Durée
+          <select name="duration">
+            <option value="">Toutes les durées</option>
+            <option value="4">4 jours</option>
+            <option value="5">5 jours</option>
+            <option value="6">6 jours</option>
+          </select>
+        </label>
+        <label>Saison
+          <select name="season">
+            <option value="">Toutes les saisons</option>
+            <option value="spring">Printemps</option>
+            <option value="autumn">Automne</option>
+          </select>
+        </label>
+        <label>Statut
+          <select name="status">
+            <option value="">Tous les statuts</option>
+            <option value="upcoming">Prochain départ</option>
+            <option value="on-request">Sur demande</option>
+            <option value="past">Trek passé</option>
+          </select>
+        </label>
+        <button class="btn trek-filter-reset" type="reset">Réinitialiser</button>
+      </form>
+      <p class="trek-filter-summary" id="trek-filter-summary" aria-live="polite"></p>
+    </section>
+
+      <section class="trek-catalogue-section" id="prochains-departs" data-trek-group="upcoming" aria-labelledby="treks-upcoming-title">
+        <div class="trek-catalogue-heading">
+          <p class="trip-section-kicker">À vos agendas</p>
+          <h2 id="treks-upcoming-title">Les prochains départs</h2>
+        </div>
+        {% if upcoming_treks.size > 0 %}<div class="trek-card-grid">{% for trek in upcoming_treks %}{% include trek-card.html trek=trek %}{% endfor %}</div>{% else %}<div class="trek-group-empty"><p>Aucun prochain départ n’est publié pour le moment.</p><a href="/contact">Être informé des prochains séjours</a></div>{% endif %}
+      </section>
+
+      <section class="trek-catalogue-section" id="treks-sur-demande" data-trek-group="on-request" aria-labelledby="treks-request-title">
+        <div class="trek-catalogue-heading">
+          <p class="trip-section-kicker">À construire ensemble</p>
+          <h2 id="treks-request-title">Les treks sur demande</h2>
+        </div>
+        {% if requested_treks.size > 0 %}<div class="trek-card-grid">{% for trek in requested_treks %}{% include trek-card.html trek=trek %}{% endfor %}</div>{% else %}<div class="trek-group-empty"><p>Ces séjours seront ajoutés au fil de la refonte. Vous pouvez déjà construire une aventure adaptée à votre groupe.</p><a href="/contact">Construire un trek sur mesure</a></div>{% endif %}
+      </section>
+
+      <section class="trek-catalogue-section" id="treks-realises" data-trek-group="past" aria-labelledby="treks-past-title">
+        <div class="trek-catalogue-heading">
+          <p class="trip-section-kicker">Inspirations</p>
+          <h2 id="treks-past-title">Inspirations et treks déjà réalisés</h2>
+        </div>
+        {% if past_treks.size > 0 %}<div class="trek-card-grid">{% for trek in past_treks %}{% include trek-card.html trek=trek %}{% endfor %}</div>{% else %}<div class="trek-group-empty"><p>Les précédentes aventures seront bientôt présentées ici.</p></div>{% endif %}
+      </section>
+
+    <p class="trek-filter-empty" id="trek-filter-empty" hidden>Aucun trek ne correspond à ces critères. Essayez de modifier ou de réinitialiser les filtres.</p>
+
+    <section class="trip-cta trek-catalogue-cta">
+      <div>
+        <p class="trip-section-kicker">Un projet en tête ?</p>
+        <h2>Construisons votre prochaine aventure</h2>
+        <p>Destination, niveau, durée et envies : échangeons pour imaginer un trek adapté à votre groupe.</p>
+      </div>
+      <a class="btn primary" href="/contact">Me contacter</a>
+    </section>
+  </main>
+
+  <div id="footer-slot"></div>
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

@@ -37,11 +37,31 @@ function setupNav() {
         });
     }
 
-    document.querySelectorAll(".submenu-toggle").forEach((btn) => {
+    const submenuButtons = [...document.querySelectorAll(".submenu-toggle")];
+    const closeSubmenu = (btn, restoreFocus = false) => {
+        btn.setAttribute("aria-expanded", "false");
+        btn.parentElement.classList.remove("submenu-open");
+        if (restoreFocus) btn.focus();
+    };
+
+    submenuButtons.forEach((btn) => {
         btn.addEventListener("click", () => {
             const isOpen = btn.getAttribute("aria-expanded") === "true";
+            submenuButtons.filter((other) => other !== btn).forEach((other) => closeSubmenu(other));
             btn.setAttribute("aria-expanded", String(!isOpen));
             btn.parentElement.classList.toggle("submenu-open", !isOpen);
+        });
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+        const openButton = submenuButtons.find((btn) => btn.getAttribute("aria-expanded") === "true");
+        if (openButton) closeSubmenu(openButton, true);
+    });
+
+    document.addEventListener("click", (event) => {
+        submenuButtons.forEach((btn) => {
+            if (btn.getAttribute("aria-expanded") === "true" && !btn.parentElement.contains(event.target)) closeSubmenu(btn);
         });
     });
 }
@@ -60,69 +80,58 @@ function setupActiveNav() {
     };
     const currentPage = normalizePage(window.location.pathname);
     const parentPages = {
-        "trek-baronnies-2027": "vivre-une-aventure",
+        "trek-baronnies-2027": "treks",
+        "baronnies-2027": "treks",
         "formation-orientation": "preparer-un-objectif",
         "preparation-physique-trek": "preparer-un-objectif",
         "observation-marmottes": "decouverte-du-patrimoine",
     };
-    const navPage = parentPages[currentPage] || currentPage;
+    const navPage = window.location.pathname.startsWith("/treks/") ? "treks" : (parentPages[currentPage] || currentPage);
     if (currentPage === "contact") document.body.classList.add("is-contact-page");
     document.querySelectorAll(".nav-list a[href]").forEach((link) => {
-        const linkPage = normalizePage(link.getAttribute("href"));
+        const href = link.getAttribute("href");
+        if (href.includes("#")) return;
+        const linkPage = normalizePage(href);
         if (linkPage === navPage) link.setAttribute("aria-current", "page");
     });
 }
 
-function setupProposalsModal() {
-    const openBtn = document.getElementById("open-proposals");
-    const modal = document.getElementById("proposals-modal");
-    if (!openBtn || !modal) return;
+function setupTrekFilters() {
+    const form = document.querySelector("#trek-filter-form");
+    if (!form) return;
 
-    const closeBtn = modal.querySelector(".modal-close");
-    let lastFocusedElement = null;
+    const cards = [...document.querySelectorAll("[data-trek-card]")];
+    const groups = [...document.querySelectorAll("[data-trek-group]")];
+    const summary = document.querySelector("#trek-filter-summary");
+    const empty = document.querySelector("#trek-filter-empty");
 
-    const open = () => {
-        lastFocusedElement = document.activeElement;
-        modal.classList.add("open");
-        modal.setAttribute("aria-hidden", "false");
-        openBtn.setAttribute("aria-expanded", "true");
-        document.body.style.overflow = "hidden";
-        closeBtn?.focus();
+    const applyFilters = () => {
+        const values = Object.fromEntries(new FormData(form).entries());
+        let visibleCount = 0;
+
+        cards.forEach((card) => {
+            const matches = ["level", "duration", "season", "status"].every((key) => !values[key] || card.dataset[key] === values[key]);
+            card.hidden = !matches;
+            if (matches) visibleCount += 1;
+        });
+
+        groups.forEach((group) => {
+            const groupCards = [...group.querySelectorAll("[data-trek-card]")];
+            if (groupCards.length) {
+                group.hidden = !groupCards.some((card) => !card.hidden);
+                return;
+            }
+            const otherFiltersActive = values.level || values.duration || values.season;
+            group.hidden = Boolean(otherFiltersActive) || Boolean(values.status && values.status !== group.dataset.trekGroup);
+        });
+
+        if (summary) summary.textContent = `${visibleCount} trek${visibleCount > 1 ? "s" : ""} affiché${visibleCount > 1 ? "s" : ""}`;
+        if (empty) empty.hidden = visibleCount > 0 || groups.some((group) => !group.hidden && !group.querySelector("[data-trek-card]"));
     };
 
-    const close = () => {
-        modal.classList.remove("open");
-        modal.setAttribute("aria-hidden", "true");
-        openBtn.setAttribute("aria-expanded", "false");
-        document.body.style.overflow = "";
-        lastFocusedElement?.focus();
-    };
-
-    openBtn.addEventListener("click", open);
-
-    modal.querySelectorAll("[data-close='1']").forEach((el) => {
-        el.addEventListener("click", close);
-    });
-
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && modal.classList.contains("open")) close();
-    });
-
-    modal.addEventListener("keydown", (event) => {
-        if (event.key !== "Tab") return;
-        const focusable = [...modal.querySelectorAll("button, a[href], [tabindex]:not([tabindex='-1'])")]
-            .filter((element) => !element.hasAttribute("disabled"));
-        if (!focusable.length) return;
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
-        if (event.shiftKey && document.activeElement === first) {
-            event.preventDefault();
-            last.focus();
-        } else if (!event.shiftKey && document.activeElement === last) {
-            event.preventDefault();
-            first.focus();
-        }
-    });
+    form.addEventListener("change", applyFilters);
+    form.addEventListener("reset", () => window.setTimeout(applyFilters, 0));
+    applyFilters();
 }
 
 (async () => {
@@ -131,5 +140,5 @@ function setupProposalsModal() {
     setupNav();
     setupActiveNav();
     setupFooterYear();
-    setupProposalsModal();
+    setupTrekFilters();
 })();

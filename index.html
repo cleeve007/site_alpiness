@@ -4,258 +4,211 @@ redirect_from:
   - /
   - /randonnes/
 ---
-﻿<!doctype html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Randonnées en Oisans — Alpiness en Oisans</title>
-    <meta name="description" content="Randonnées, aventures et expériences sur mesure dans les massifs de l'Oisans, à la journée ou en itinérance." />
-    <link rel="canonical" href="https://alpinessenoisans.com/randonnees/" />
-    <link rel="stylesheet" href="/assets/css/styles.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Treks et randonnées accompagnés - Alpiness en Oisans</title>
+    <meta name="description" content="Treks, randonnées accompagnées et séjours sur mesure dans les Alpes et ailleurs, en petit groupe avec Alpiness en Oisans.">
+    <link rel="canonical" href="https://alpinessenoisans.com/randonnees/">
+    <meta property="og:title" content="Treks et randonnées accompagnés - Alpiness en Oisans">
+    <meta property="og:description" content="Des séjours en petit groupe pour marcher, découvrir et vivre pleinement la montagne.">
+    <meta property="og:image" content="https://alpinessenoisans.com/assets/img/hero.jpg">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="icon" href="/assets/img/favicon-64.png">
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Aller au contenu principal</a>
     <div id="header-slot"></div>
 
-    <main class="container">
-        <section class="hero hero-image">
-            <button class="proposals-badge" id="open-proposals" type="button" aria-label="Mes dernières propositions" aria-controls="proposals-modal" aria-expanded="false" aria-haspopup="dialog">
-                <div class="runner" aria-hidden="true">
-                    <img src="/assets/img/propositions/runner.gif" alt="">
-                </div>
-                <div class="label">Mes dernières propositions</div>
-            </button>
+    {% assign sorted_treks = site.treks | sort: "order" %}
+    {% assign upcoming_treks = sorted_treks | where: "status", "upcoming" %}
 
+    <main class="container home-page" id="main-content" tabindex="-1">
+        <section class="hero hero-image home-hero">
             <div class="hero-overlay"></div>
-
             <div class="hero-content">
-                <h1>Alpiness en Oisans</h1>
-                <p>
-                    Randonnées, aventures et expériences en montagne.<br>
-                    Printemps • Été • Automne
-                </p>
-
+                <p class="home-hero-kicker">Alpiness en Oisans</p>
+                <h1>Treks et randonnées accompagnés</h1>
+                <p>Dans les Alpes et ailleurs, en petit groupe ou sur mesure.</p>
                 <div class="hero-actions">
-                    <a class="btn primary" href="/vivre-une-aventure">Découvrir les activités</a>
-                    <a class="btn" href="/contact">Contact</a>
+                    <a class="btn primary" href="#prochains-treks">Voir les prochains treks</a>
+                    <a class="btn" href="/contact">Séjour sur mesure</a>
                 </div>
             </div>
         </section>
 
+        {% if upcoming_treks.size > 0 %}
+            <section class="home-section" id="prochains-treks" aria-labelledby="home-upcoming-title">
+                <div class="home-section-heading">
+                    <div>
+                        <p class="trip-section-kicker">À vos agendas</p>
+                        <h2 id="home-upcoming-title">Les prochains treks</h2>
+                    </div>
+                    <a class="home-section-link" href="/treks/">Voir tous les treks →</a>
+                </div>
+                <div class="trek-card-grid home-upcoming-grid{% if upcoming_treks.size == 1 %} home-upcoming-grid--single{% endif %}">
+                    {% for trek in upcoming_treks limit: 4 %}{% include trek-card.html trek=trek %}{% endfor %}
+                </div>
+            </section>
+        {% endif %}
 
-        <section class="section" id="a-propos">
-            <div class="section-title">
-                <h2>L'approche Alpiness</h2>
-                <span>qui je suis · pourquoi ici · pour qui</span>
+        <section class="home-section" aria-labelledby="home-choose-title">
+            <div class="home-section-heading">
+                <div>
+                    <p class="trip-section-kicker">Selon vos envies</p>
+                    <h2 id="home-choose-title">Une aventure selon vos envies</h2>
+                </div>
             </div>
-
-            <div class="panel">
-                <h3>Comment en suis-je arrivé là ?</h3>
-                <p>
-                    J'ai toujours été passionné par le milieu montagnard mais c'est en 2020, après 32 ans dans la finance,
-                    que j'ai changé de vie.
-                    En parallèle de la restauration d'une ancienne grange à Allemond (Isère) pour en faire un gîte,
-                    j'ai engagé plusieurs formations, un Brevet Fédéral et un Diplôme d'État d'Alpiniste,
-                    afin de devenir accompagnateur en montagne et de pouvoir ainsi encadrer toutes les personnes souhaitant découvrir et s'évader en montagne.
-                </p>
-
-                <h3>Pourquoi ici ?</h3>
-                <p>
-                    En montagne, les paysages y sont vastes, les sites d'accès difficiles, souvent étendus ; toutes ces terres laissées à elles-mêmes
-                    nous donnent une impression de nature libre et sauvage.
-                    Décor prestigieux, climat, ensoleillement, calme, qualité de l'air, équilibres écologiques respectés dans des paysages de tradition
-                    en font une région de loisirs et de détente sans équivalent.
-                </p>
-
-                <h3>Pour y faire quoi ?</h3>
-                <p>
-                    Chaque sortie en montagne est une occasion de partager des émotions profondes et sincères, d'apprendre de la nature,
-                    de progresser humainement et physiquement.
-                    Vous recherchez des vacances actives, du tourisme sportif, des séjours immersifs ou simplement du bien-être et la découverte
-                    d'environnement naturel exceptionnel.
-                </p>
-
-                <h3>Comment ?</h3>
-                <p>
-                    En construisant des projets adaptés et personnalisés. Qu'ils soient courts, longs ou itinérants, personnels ou professionnels,
-                    je mets une attention particulière à ce qu'ils soient le plus durables et respectueux des milieux sensibles traversés.
-                </p>
-
-                <h3>Pour qui ?</h3>
-                <p>
-                    Vous · votre famille · vos amis<br>
-                    Vos équipes · vos clients
-                </p>
+            <div class="home-trek-paths">
+                <article class="home-trek-path home-trek-path--request">
+                    <span class="trek-status trek-status--on-request">Sur demande</span>
+                    <h3>Un trek à construire ensemble</h3>
+                    <p>Un séjour conçu selon votre groupe, votre niveau et vos dates.</p>
+                    <a class="btn primary" href="/contact">Parler de mon projet</a>
+                </article>
+                <article class="home-trek-path home-trek-path--past">
+                    <span class="trek-status trek-status--past">Treks déjà réalisés</span>
+                    <h3>Ils peuvent devenir votre prochaine aventure</h3>
+                    <p>Des itinéraires vécus à réinventer pour votre prochain départ.</p>
+                    <a class="btn" href="/treks/#treks-realises">Voir les inspirations</a>
+                </article>
             </div>
         </section>
 
-        <section class="section" id="infos-pratiques">
-            <div class="section-title">
-                <h2>Infos pratiques</h2>
-                <span>lieu · durée · âge · tarifs</span>
+        <section class="home-section home-guide" id="a-propos" aria-labelledby="home-guide-title">
+            <div class="home-guide-intro">
+                <p class="trip-section-kicker">Votre accompagnateur</p>
+                <h2 id="home-guide-title">Une montagne à votre mesure</h2>
+                <p>Accompagnateur en montagne diplômé, je conçois des aventures adaptées à votre niveau, vos envies et votre groupe.</p>
+                <a class="btn primary" href="/contact">Échanger sur votre projet</a>
+            </div>
+            <div class="home-engagements" aria-label="Les engagements Alpiness">
+                <article>
+                    <strong>Sur mesure</strong>
+                    <span>Un projet adapté à votre niveau, vos envies et votre groupe.</span>
+                </article>
+                <article>
+                    <strong>Proximité</strong>
+                    <span>Des petits groupes pour partager pleinement l’expérience.</span>
+                </article>
+                <article>
+                    <strong>Préparation</strong>
+                    <span>Des conseils concrets pour profiter sereinement du terrain.</span>
+                </article>
+                <article>
+                    <strong>Respect des milieux</strong>
+                    <span>Une attention particulière aux espaces sensibles traversés.</span>
+                </article>
             </div>
 
-            <div class="infos-grid">
-                <div class="panel">
-                    <p><strong>Lieu :</strong> Massifs de l'Oisans (Belledonne, Grandes Rousses, Taillefer, Arves, Écrins)</p>
-                    <p><strong>Durée :</strong> demi-journée ou journée complète</p>
-                    <p><strong>Âge minimum :</strong> dès 7 ans</p>
-                <p><strong>Location de matériel possible :</strong> bâtons, raquettes…</p>
+            <details class="home-approach-details">
+                <summary>Découvrir l’approche Alpiness</summary>
+                <div class="home-approach-content">
+                    <div>
+                        <h3>Mon parcours</h3>
+                        <p>Après 32 ans dans la finance, j’ai changé de vie en 2020. En parallèle de la restauration d’une ancienne grange à Allemond pour en faire un gîte, j’ai suivi plusieurs formations, un Brevet Fédéral et un Diplôme d’État d’Alpiniste afin d’encadrer les personnes souhaitant découvrir et s’évader en montagne.</p>
+                    </div>
+                    <div>
+                        <h3>Pourquoi ici ?</h3>
+                        <p>En montagne, les paysages sont vastes et les sites parfois difficiles d’accès. Ces terres laissées à elles-mêmes donnent une impression de nature libre et sauvage. Le décor, l’ensoleillement, le calme, la qualité de l’air et les équilibres écologiques en font une région de loisirs et de détente sans équivalent.</p>
+                    </div>
+                    <div>
+                        <h3>Pour y faire quoi ?</h3>
+                        <p>Chaque sortie est une occasion de partager des émotions profondes, d’apprendre de la nature et de progresser humainement et physiquement : vacances actives, tourisme sportif, séjours immersifs, bien-être ou découverte d’environnements naturels exceptionnels.</p>
+                    </div>
+                    <div>
+                        <h3>Comment ?</h3>
+                        <p>En construisant des projets adaptés et personnalisés. Courts, longs ou itinérants, personnels ou professionnels, ils sont pensés pour être aussi durables et respectueux que possible des milieux sensibles traversés.</p>
+                    </div>
+                    <div>
+                        <h3>Pour qui ?</h3>
+                        <p>Vous, votre famille, vos amis, vos équipes ou vos clients.</p>
+                    </div>
                 </div>
+            </details>
+        </section>
 
-                <div class="panel">
-                    <h3>Tarifs</h3>
-                    <div class="table-scroll" tabindex="0" aria-label="Tarifs des sorties">
+        <section class="home-section home-secondary" aria-labelledby="home-secondary-title">
+            <div class="home-section-heading">
+                <div>
+                    <p class="trip-section-kicker">Autrement en montagne</p>
+                    <h2 id="home-secondary-title">D’autres façons de vivre la montagne</h2>
+                </div>
+            </div>
+            <div class="home-secondary-grid">
+                <a class="home-secondary-card" href="/vivre-une-aventure">
+                    <img src="/assets/img/gallery/photo-rando-a-pied.webp" alt="Randonnée accompagnée en Oisans" loading="lazy">
+                    <span><strong>Randonnées à la journée</strong></span>
+                </a>
+                <a class="home-secondary-card" href="/se-faire-du-bien">
+                    <img src="/assets/img/se-faire-du-bien-hero.png" alt="Remise en forme en montagne" loading="lazy">
+                    <span><strong>Se faire du bien</strong></span>
+                </a>
+                <a class="home-secondary-card" href="/preparer-un-objectif">
+                    <img src="/assets/img/preparer-un-objectif-hero.webp" alt="Préparation d’un objectif en montagne" loading="lazy">
+                    <span><strong>Préparer un objectif</strong></span>
+                </a>
+                <a class="home-secondary-card" href="/decouverte-du-patrimoine">
+                    <img src="/assets/img/decouverte-du-patrimoine-hero.webp" alt="Découverte du patrimoine naturel de l’Oisans" loading="lazy">
+                    <span><strong>Nature et patrimoine</strong></span>
+                </a>
+                <a class="home-secondary-card" href="/hebergement">
+                    <img src="/assets/img/hebergement-hero-interieur.webp" alt="Hébergement à Allemond en Oisans" loading="lazy">
+                    <span><strong>Hébergement</strong></span>
+                </a>
+            </div>
+        </section>
+
+        <section class="home-section home-faq" id="infos-pratiques" aria-labelledby="home-faq-title">
+            <div class="home-section-heading">
+                <div>
+                    <p class="trip-section-kicker">Avant de partir</p>
+                    <h2 id="home-faq-title">Questions pratiques</h2>
+                </div>
+            </div>
+            <div class="home-faq-list">
+                <details>
+                    <summary>Quand et où partir ?</summary>
+                    <div><p>Les activités se déroulent principalement dans les massifs de l’Oisans — Belledonne, Grandes Rousses, Taillefer, Arves et Écrins — au printemps, en été et en automne. Les sorties en raquettes permettent aussi de découvrir la montagne enneigée lorsque les conditions le permettent.</p></div>
+                </details>
+                <details>
+                    <summary>Formats, âge et matériel</summary>
+                    <div><p>Les sorties durent une demi-journée ou une journée complète et sont accessibles dès 7 ans, avec un niveau et un itinéraire adaptés au groupe. La location de bâtons ou de raquettes peut être organisée. Les treks et séjours itinérants disposent de leur propre programme.</p></div>
+                </details>
+                <details>
+                    <summary>Quels sont les tarifs des sorties à la journée ?</summary>
+                    <div class="table-scroll" tabindex="0" aria-label="Tarifs des sorties à la journée">
                         <table class="pricing-table">
                             <thead>
-                                <tr>
-                                    <th rowspan="2">Format</th>
-                                    <th colspan="2">Individuel</th>
-                                    <th colspan="2">Groupe</th>
-                                </tr>
-                                <tr>
-                                    <th>Adultes</th>
-                                    <th>Enfants</th>
-                                    <th>1–5 personnes</th>
-                                    <th>6–12 personnes</th>
-                                </tr>
+                                <tr><th rowspan="2">Format</th><th colspan="2">Individuel</th><th colspan="2">Groupe</th></tr>
+                                <tr><th>Adultes</th><th>Enfants</th><th>1-5 personnes</th><th>6-12 personnes</th></tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1/2 journée</td>
-                                    <td>30 €</td>
-                                    <td>25 €</td>
-                                    <td>130 €</td>
-                                    <td>160 €</td>
-                                </tr>
-                                <tr>
-                                    <td>Journée</td>
-                                    <td>40 €</td>
-                                    <td>30 €</td>
-                                    <td>230 €</td>
-                                    <td>260 €</td>
-                                </tr>
+                                <tr><td>1/2 journée</td><td>30 €</td><td>25 €</td><td>130 €</td><td>160 €</td></tr>
+                                <tr><td>Journée</td><td>40 €</td><td>30 €</td><td>230 €</td><td>260 €</td></tr>
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </details>
+                <details>
+                    <summary>À qui s’adressent les projets sur mesure ?</summary>
+                    <div><p>Aux familles, groupes d’amis, équipes professionnelles ou clients qui souhaitent construire une expérience courte, longue ou itinérante.</p></div>
+                </details>
             </div>
         </section>
 
-        <section class="section">
-            <div class="section-title">
-                <h2>Explorer</h2>
-                <span>activités</span>
+        <section class="trip-cta home-final-cta">
+            <div>
+                <p class="trip-section-kicker">Une envie de montagne ?</p>
+                <h2>Parlons de votre prochaine aventure</h2>
+                <p>Un trek, une randonnée ou un objectif : construisons votre projet.</p>
             </div>
-
-            <div class="grid">
-                <article class="card">
-                    <div class="card-media">
-                        <img src="/assets/img/gallery/photo-rando-a-pied.webp" alt="Randonnée à pied en Oisans" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <h3>Vivre une aventure</h3>
-                        <p>1/2 journée · journée · itinérance — à pied / raquettes / vélo.</p>
-                    </div>
-                    <div class="card-actions">
-                        <a class="btn primary" href="/vivre-une-aventure">Voir</a>
-                        <a class="btn" href="/contact">Contact</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card-media">
-                        <img src="/assets/img/se-faire-du-bien-hero.png" alt="Se faire du bien en montagne" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <h3>Se faire du bien</h3>
-                        <p>Remise en forme, relaxation, autonomie, bivouac.</p>
-                    </div>
-                    <div class="card-actions">
-                        <a class="btn primary" href="/se-faire-du-bien">Voir</a>
-                        <a class="btn" href="/contact">Contact</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card-media">
-                        <img src="/assets/img/preparer-un-objectif-hero.webp" alt="Préparer un objectif en montagne" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <h3>Préparer un objectif</h3>
-                        <p>Plan d’entraînement, orientation, techniques sur le terrain.</p>
-                    </div>
-                    <div class="card-actions">
-                        <a class="btn primary" href="/preparer-un-objectif">Voir</a>
-                        <a class="btn" href="/contact">Contact</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card-media">
-                        <img src="/assets/img/decouverte-du-patrimoine-hero.webp" alt="Découverte du patrimoine en Oisans" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <h3>Découverte du patrimoine</h3>
-                        <p>Culture, architecture, faune, flore, géologie.</p>
-                    </div>
-                    <div class="card-actions">
-                        <a class="btn primary" href="/decouverte-du-patrimoine">Voir</a>
-                        <a class="btn" href="/contact">Contact</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card-media">
-                        <img src="/assets/img/hebergement-hero-interieur.webp" alt="Hébergement — intérieur du chalet" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <h3>Hébergement</h3>
-                        <p>Camp de base idéal pour découvrir l'Oisans.</p>
-                    </div>
-                    <div class="card-actions">
-                        <a class="btn primary" href="/hebergement">Voir</a>
-                        <a class="btn" href="/contact">Contact</a>
-                    </div>
-                </article>
-            </div>
+            <a class="btn primary" href="/contact">Me contacter</a>
         </section>
     </main>
-
-    <div class="modal" id="proposals-modal" aria-hidden="true">
-        <div class="modal-backdrop" data-close="1"></div>
-        <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="proposals-title">
-            <div class="modal-header">
-                <div class="modal-title" id="proposals-title">Mes dernières propositions</div>
-                <button class="modal-close" type="button" data-close="1">Fermer</button>
-            </div>
-            <div class="modal-body">
-                <div class="proposal-item">
-                    <div class="proposal-meta">
-                        <div class="title">Trek des Baronnies</div>
-                        <div class="tag">Deux dates en mai 2027</div>
-                    </div>
-
-                    <div class="proposal-hero">
-                        <img src="/assets/img/propositions/trek-baronnies-mai-2027.jpg" alt="Aperçu de la proposition Trek des Baronnies">
-                        <div>
-                            <p style="margin:0 0 8px"><strong>Quatre jours de randonnée au cœur des Baronnies provençales</strong>, avec deux propositions de camp de base et l’ascension possible du Mont Ventoux.</p>
-                            <p style="margin:0"><a href="/trek-baronnies-2027/">Découvrir le séjour</a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="proposal-item">
-                    <div class="proposal-meta">
-                        <div class="title">Le chemin des pêcheurs — Portugal</div>
-                    </div>
-
-                    <img class="flyer" src="/assets/img/propositions/flyer.png" alt="Le chemin des pêcheurs au Portugal" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div id="footer-slot"></div>
     <script src="/assets/js/main.js" defer></script>
