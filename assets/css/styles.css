@@ -2299,7 +2299,7 @@ main {
 }
 
 .home-section {
-    margin-top: clamp(52px, 7vw, 90px);
+    margin-top: clamp(44px, 6vw, 74px);
 }
 
 .home-section-heading {
@@ -2354,37 +2354,50 @@ main {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    min-height: 330px;
+    justify-content: flex-end;
+    min-height: 360px;
+    overflow: hidden;
     padding: clamp(28px, 4.5vw, 52px);
     border: 1px solid var(--line);
     border-radius: 24px;
+    color: #fff;
+    background-position: center;
+    background-size: cover;
     box-shadow: var(--shadow);
 }
 
 .home-trek-path--request {
-    background: linear-gradient(145deg, #f6d4ac, rgba(255,255,255,.76));
+    background-image: linear-gradient(180deg, rgba(10,25,17,.06) 12%, rgba(10,25,17,.90) 100%), url('/assets/img/hero.jpg');
 }
 
 .home-trek-path--past {
-    background: linear-gradient(145deg, #dbe9df, rgba(255,255,255,.78));
+    background-image: linear-gradient(180deg, rgba(10,25,17,.04) 12%, rgba(10,25,17,.90) 100%), url('/assets/img/trek-portugal/card.webp');
 }
 
 .home-trek-path h3 {
-    margin: 24px 0 12px;
+    max-width: 560px;
+    margin: 18px 0 10px;
     font-size: clamp(27px, 3vw, 38px);
     line-height: 1.08;
+    text-shadow: 0 3px 16px rgba(0,0,0,.34);
 }
 
 .home-trek-path p {
     max-width: 610px;
-    margin: 0 0 28px;
-    color: var(--muted);
+    margin: 0 0 22px;
+    color: rgba(255,255,255,.88);
     font-size: 17px;
-    line-height: 1.65;
+    line-height: 1.5;
 }
 
 .home-trek-path .btn {
-    margin-top: auto;
+    margin-top: 0;
+}
+
+.home-trek-path .btn:not(.primary) {
+    border-color: rgba(255,255,255,.65);
+    background: rgba(255,255,255,.94);
+    color: var(--text);
 }
 
 .home-guide {
@@ -2412,7 +2425,10 @@ main {
 }
 
 .home-engagements article {
-    padding: 22px;
+    display: grid;
+    place-items: center;
+    min-height: 86px;
+    padding: 18px;
     border: 1px solid rgba(47,111,85,.14);
     border-radius: 18px;
     background: rgba(255,255,255,.68);
@@ -2424,9 +2440,10 @@ main {
 }
 
 .home-engagements strong {
-    margin-bottom: 8px;
+    margin-bottom: 0;
     color: var(--accent2);
     font-size: 18px;
+    text-align: center;
 }
 
 .home-engagements span {
@@ -2519,7 +2536,7 @@ main {
 .home-secondary-card span {
     display: grid;
     gap: 7px;
-    padding: 18px;
+    padding: 16px 18px;
 }
 
 .home-secondary-card strong {
@@ -2654,7 +2671,12 @@ main {
     }
 
     .home-hero .hero-content h1 {
-        font-size: clamp(39px, 12vw, 58px);
+        font-size: clamp(30px, 8.5vw, 42px);
+        overflow-wrap: normal;
+    }
+
+    .home-hero .hero-content > p:not(.home-hero-kicker) {
+        overflow-wrap: anywhere;
     }
 
     .home-section-heading {
