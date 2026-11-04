@@ -53,6 +53,15 @@
     line-height: 1.65;
 }
 
+.trek-catalogue-hero .trek-catalogue-format {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 0 0 12px;
+    color: var(--text);
+    font-size: clamp(17px, 2vw, 20px);
+}
+
 .trek-status-legend,
 .trek-card-topline {
     display: flex;
@@ -317,6 +326,108 @@
 
     .trek-filter-reset {
         width: 100%;
+    }
+}
+
+.reservation-page {
+    max-width: 1120px;
+    margin: 34px auto 72px;
+}
+
+.reservation-panel {
+    display: grid;
+    grid-template-columns: minmax(0, .85fr) minmax(360px, 1.15fr);
+    gap: clamp(30px, 5vw, 64px);
+    padding: clamp(30px, 5vw, 64px);
+    border: 1px solid var(--line);
+    border-radius: 26px;
+    background: var(--panel);
+    box-shadow: var(--shadow);
+}
+
+.reservation-intro h1 {
+    margin: 0 0 20px;
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.04;
+}
+
+.reservation-intro > p:not(.trip-section-kicker) {
+    margin: 0;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.reservation-form {
+    padding: clamp(24px, 4vw, 38px);
+    border: 1px solid rgba(47,111,85,.14);
+    border-radius: 20px;
+    background: rgba(255,255,255,.82);
+}
+
+.reservation-fields {
+    display: grid;
+    gap: 9px;
+}
+
+.reservation-fields label {
+    margin-top: 9px;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.reservation-fields label:first-child {
+    margin-top: 0;
+}
+
+.reservation-fields label span,
+.reservation-help {
+    color: var(--muted);
+    font-weight: 500;
+}
+
+.reservation-fields input,
+.reservation-fields textarea {
+    width: 100%;
+    border: 1px solid rgba(19,36,27,.22);
+    border-radius: 12px;
+    background: #fff;
+    color: var(--text);
+    font: inherit;
+}
+
+.reservation-fields input {
+    min-height: 48px;
+    padding: 10px 13px;
+}
+
+.reservation-fields textarea {
+    min-height: 140px;
+    padding: 13px;
+    resize: vertical;
+}
+
+.reservation-fields input:focus-visible,
+.reservation-fields textarea:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 6px #173f2a;
+}
+
+.reservation-form > .btn {
+    margin-top: 22px;
+}
+
+.reservation-help {
+    margin: 12px 0 0;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+@media (max-width: 800px) {
+    .reservation-panel {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -658,7 +769,9 @@
 
 .trip-stay-details {
     display: grid;
-    gap: 5px;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 14px;
     margin: 0 0 16px;
     padding: 14px 16px;
     border-radius: 14px;
@@ -666,6 +779,16 @@
     color: var(--muted);
     font-size: 14px;
     line-height: 1.45;
+}
+
+.trip-stay-detail-text {
+    display: grid;
+    gap: 5px;
+}
+
+.trip-stay-reserve {
+    margin-top: 0;
+    white-space: nowrap;
 }
 
 .trip-stay-details span {
@@ -1316,6 +1439,17 @@ select:focus-visible,
     background: transparent;
     cursor: pointer;
     font: inherit;
+    font-weight: 600;
+}
+
+@media (max-width: 520px) {
+    .trip-stay-details {
+        grid-template-columns: 1fr;
+    }
+
+    .trip-stay-reserve {
+        justify-self: start;
+    }
 }
 
 .submenu {
@@ -1678,6 +1812,83 @@ main {
 
 .hero-image.hebergement-hero {
     background-image: url("../img/hebergement-hero-terrasse.webp");
+}
+
+.chalet-gallery-intro {
+    max-width: 720px;
+    margin: 0 0 24px;
+    color: var(--text-soft);
+}
+
+.chalet-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: 190px;
+    gap: 12px;
+}
+
+.chalet-gallery figure {
+    min-width: 0;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 20px;
+    background: var(--panel);
+    box-shadow: var(--shadow-soft);
+}
+
+.chalet-gallery-featured {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.chalet-gallery-wide {
+    grid-column: span 2;
+}
+
+.chalet-gallery img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .35s ease;
+}
+
+.chalet-gallery figure:hover img {
+    transform: scale(1.025);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .chalet-gallery img {
+        transition: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .chalet-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: 190px;
+    }
+}
+
+@media (max-width: 560px) {
+    .chalet-gallery {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+    }
+
+    .chalet-gallery-featured {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .chalet-gallery-wide {
+        grid-column: auto;
+    }
+
+    .chalet-gallery figure {
+        aspect-ratio: 4 / 3;
+        border-radius: 16px;
+    }
 }
 
 .hero-image.se-faire-du-bien-hero {

@@ -35,12 +35,12 @@ facts:
   - label: "Dates"
     value: "19-23 ou 26-30 mai 2027"
   - label: "Randonnée"
-    value: "4 jours"
+    value: "4 jours · environ 25 km-effort par jour"
   - label: "Niveau requis"
-    value: "3 / 5"
+    value: "3 / 5 · Débutant en bonne forme physique"
     level: 3
   - label: "Formule"
-    value: "Camp de base"
+    value: "Randonnée en étoile à partir du camp de base"
 introduction:
   kicker: "Entre Provence et montagne"
   title: "Une parenthèse au cœur des Baronnies"
@@ -51,7 +51,8 @@ highlights:
   - "Quatre journées de randonnée variées"
   - "Des paysages entre lavande, falaises et sommets"
   - "Deux camps de base de caractère au choix"
-  - "Un séjour à partager entre amis"
+  - "Une expérience culinaire chaque soir avec un chef de la région"
+  - "Un séjour à partager entre amis, en groupe de 10 personnes maximum"
 gallery:
   - src: /assets/img/trek-baronnies-2027/chapelle-baronnies.jpg
     alt: "Chapelle au cœur des Baronnies"
@@ -88,6 +89,7 @@ stays:
     date: "Du 19 au 23 mai 2027"
     price: "880 € / personne"
     meal_plan: "demi-pension"
+    reservation_url: /reservation-baronnies-19-23-mai-2027/
     description: "Des cabanes écoresponsables nichées en pleine nature, entre Drôme provençale et montagnes des Hautes-Alpes. Un cadre intime pensé pour ralentir, se retrouver et savourer l’environnement."
     images:
       - src: /assets/img/trek-baronnies-2027/terre-cabane.jpg
@@ -121,7 +123,9 @@ practical:
   - label: "Organisation"
     value: "Quatre jours de randonnée et quatre nuits dans le camp de base retenu."
   - label: "Niveau"
-    value: "3/5 à titre indicatif. Le programme sera adapté au groupe."
+    value: "3/5 · Débutant en bonne forme physique. Le programme sera adapté au groupe."
+  - label: "Groupe"
+    value: "De 6 à 10 personnes."
 cta:
   kicker: "Envie de participer ?"
   title: "Parlons de votre projet"
