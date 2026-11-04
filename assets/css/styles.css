@@ -1680,6 +1680,83 @@ main {
     background-image: url("../img/hebergement-hero-terrasse.webp");
 }
 
+.chalet-gallery-intro {
+    max-width: 720px;
+    margin: 0 0 24px;
+    color: var(--text-soft);
+}
+
+.chalet-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: 190px;
+    gap: 12px;
+}
+
+.chalet-gallery figure {
+    min-width: 0;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 20px;
+    background: var(--panel);
+    box-shadow: var(--shadow-soft);
+}
+
+.chalet-gallery-featured {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.chalet-gallery-wide {
+    grid-column: span 2;
+}
+
+.chalet-gallery img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .35s ease;
+}
+
+.chalet-gallery figure:hover img {
+    transform: scale(1.025);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .chalet-gallery img {
+        transition: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .chalet-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: 190px;
+    }
+}
+
+@media (max-width: 560px) {
+    .chalet-gallery {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+    }
+
+    .chalet-gallery-featured {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .chalet-gallery-wide {
+        grid-column: auto;
+    }
+
+    .chalet-gallery figure {
+        aspect-ratio: 4 / 3;
+        border-radius: 16px;
+    }
+}
+
 .hero-image.se-faire-du-bien-hero {
     background-image: url("../img/se-faire-du-bien-hero.png");
 }
