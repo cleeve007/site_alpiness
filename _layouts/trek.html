@@ -188,8 +188,11 @@
                 {% if stay.title %}<h3>{{ stay.title }}</h3>{% endif %}
                 {% if stay.date or stay.price or stay.meal_plan %}
                   <div class="trip-stay-details">
-                    {% if stay.date %}<span><strong>{{ stay.date }}</strong></span>{% endif %}
-                    {% if stay.price %}<span><strong>{{ stay.price }}</strong>{% if stay.meal_plan %} · {{ stay.meal_plan }}{% endif %}</span>{% elsif stay.meal_plan %}<span>{{ stay.meal_plan }}</span>{% endif %}
+                    <div class="trip-stay-detail-text">
+                      {% if stay.date %}<span><strong>{{ stay.date }}</strong></span>{% endif %}
+                      {% if stay.price %}<span><strong>{{ stay.price }}</strong>{% if stay.meal_plan %} · {{ stay.meal_plan }}{% endif %}</span>{% elsif stay.meal_plan %}<span>{{ stay.meal_plan }}</span>{% endif %}
+                    </div>
+                    {% if stay.reservation_url %}<a class="btn primary trip-stay-reserve" href="{{ stay.reservation_url | relative_url }}">Réserver</a>{% endif %}
                   </div>
                 {% endif %}
                 {% if stay.description %}<p>{{ stay.description }}</p>{% endif %}
