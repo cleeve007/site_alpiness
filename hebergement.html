@@ -62,30 +62,61 @@ redirect_from:
             </p>
             <div class="chalet-gallery">
                 <figure class="chalet-gallery-featured">
-                    <img src="/assets/img/chalet-terrasse-vue.avif" width="1200" height="900" alt="Terrasse en bois du chalet avec table et vue panoramique sur les montagnes" loading="lazy" decoding="async">
+                    <button class="chalet-gallery-button" type="button" aria-label="Agrandir : terrasse panoramique du chalet">
+                        <img src="/assets/img/chalet-terrasse-vue.avif" width="1200" height="900" alt="Terrasse en bois du chalet avec table et vue panoramique sur les montagnes" loading="lazy" decoding="async">
+                    </button>
                 </figure>
                 <figure>
-                    <img src="/assets/img/chalet-chambre-vue.avif" width="1200" height="900" alt="Chambre lumineuse du chalet ouverte sur le paysage enneigé" loading="lazy" decoding="async">
+                    <button class="chalet-gallery-button" type="button" aria-label="Agrandir : chambre avec vue sur la montagne">
+                        <img src="/assets/img/chalet-chambre-vue.avif" width="1200" height="900" alt="Chambre lumineuse du chalet ouverte sur le paysage enneigé" loading="lazy" decoding="async">
+                    </button>
                 </figure>
                 <figure>
-                    <img src="/assets/img/chalet-cuisine.webp" width="1200" height="900" alt="Cuisine équipée et espace repas face aux montagnes" loading="lazy" decoding="async">
+                    <button class="chalet-gallery-button" type="button" aria-label="Agrandir : cuisine et espace repas">
+                        <img src="/assets/img/chalet-cuisine.webp" width="1200" height="900" alt="Cuisine équipée et espace repas face aux montagnes" loading="lazy" decoding="async">
+                    </button>
                 </figure>
                 <figure>
-                    <img src="/assets/img/chalet-salon.webp" width="1200" height="900" alt="Salon du chalet avec canapé et mobilier contemporain" loading="lazy" decoding="async">
+                    <button class="chalet-gallery-button" type="button" aria-label="Agrandir : salon du chalet">
+                        <img src="/assets/img/chalet-salon.webp" width="1200" height="900" alt="Salon du chalet avec canapé et mobilier contemporain" loading="lazy" decoding="async">
+                    </button>
                 </figure>
                 <figure>
-                    <img src="/assets/img/chalet-terrasse-pierre.avif" width="1200" height="900" alt="Seconde terrasse du chalet bordée d’un mur en pierre avec vue sur la montagne" loading="lazy" decoding="async">
+                    <button class="chalet-gallery-button" type="button" aria-label="Agrandir : seconde terrasse avec vue">
+                        <img src="/assets/img/chalet-terrasse-pierre.avif" width="1200" height="900" alt="Seconde terrasse du chalet bordée d’un mur en pierre avec vue sur la montagne" loading="lazy" decoding="async">
+                    </button>
                 </figure>
                 <figure>
-                    <img src="/assets/img/chalet-terrasse-dejeuner.webp" width="1200" height="900" alt="Table dressée pour le petit-déjeuner sur la terrasse panoramique" loading="lazy" decoding="async">
+                    <button class="chalet-gallery-button" type="button" aria-label="Agrandir : petit-déjeuner sur la terrasse">
+                        <img src="/assets/img/chalet-terrasse-dejeuner.webp" width="1200" height="900" alt="Table dressée pour le petit-déjeuner sur la terrasse panoramique" loading="lazy" decoding="async">
+                    </button>
                 </figure>
                 <figure>
-                    <img src="/assets/img/chalet-douche.avif" width="1200" height="1600" alt="Douche du chalet avec paroi en mosaïque" loading="lazy" decoding="async">
+                    <button class="chalet-gallery-button" type="button" aria-label="Agrandir : douche avec paroi en mosaïque">
+                        <img src="/assets/img/chalet-douche.avif" width="1200" height="1600" alt="Douche du chalet avec paroi en mosaïque" loading="lazy" decoding="async">
+                    </button>
                 </figure>
                 <figure class="chalet-gallery-wide">
-                    <img src="/assets/img/chalet-interieur-balcon.avif" width="1200" height="900" alt="Pièce de vie du chalet donnant sur le balcon et les montagnes" loading="lazy" decoding="async">
+                    <button class="chalet-gallery-button" type="button" aria-label="Agrandir : pièce de vie donnant sur le balcon">
+                        <img src="/assets/img/chalet-interieur-balcon.avif" width="1200" height="900" alt="Pièce de vie du chalet donnant sur le balcon et les montagnes" loading="lazy" decoding="async">
+                    </button>
                 </figure>
             </div>
+
+            <dialog class="chalet-lightbox" id="chalet-lightbox" aria-labelledby="chalet-lightbox-caption">
+                <div class="chalet-lightbox-content">
+                    <button class="chalet-lightbox-close" type="button" aria-label="Fermer la galerie">×</button>
+                    <button class="chalet-lightbox-nav chalet-lightbox-prev" type="button" aria-label="Photo précédente">‹</button>
+                    <figure>
+                        <img src="/assets/img/chalet-terrasse-vue.avif" alt="" width="1200" height="900">
+                        <figcaption id="chalet-lightbox-caption" aria-live="polite">
+                            <span class="chalet-lightbox-description"></span>
+                            <span class="chalet-lightbox-counter"></span>
+                        </figcaption>
+                    </figure>
+                    <button class="chalet-lightbox-nav chalet-lightbox-next" type="button" aria-label="Photo suivante">›</button>
+                </div>
+            </dialog>
         </section>
 
         <section class="section">
@@ -119,5 +150,6 @@ redirect_from:
 
     <div id="footer-slot"></div>
     <script src="/assets/js/main.js" defer></script>
+    <script src="/assets/js/hebergement-gallery.js" defer></script>
 </body>
 </html>
