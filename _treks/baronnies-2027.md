@@ -51,6 +51,7 @@ highlights:
   - "Quatre journées de randonnée variées"
   - "Des paysages entre lavande, falaises et sommets"
   - "Deux camps de base de caractère au choix"
+  - "Une expérience culinaire chaque soir avec un chef de la région"
   - "Un séjour à partager entre amis, en groupe de 10 personnes maximum"
 gallery:
   - src: /assets/img/trek-baronnies-2027/chapelle-baronnies.jpg
