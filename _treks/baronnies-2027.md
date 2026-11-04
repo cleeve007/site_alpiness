@@ -48,11 +48,11 @@ introduction:
     - "Nées de la rencontre de la Provence avec la montagne, les Baronnies offrent un territoire sensible et lumineux. Entre douceur provençale et reliefs sauvages, nous parcourrons les sentiers du Parc naturel régional des Baronnies provençales."
     - "Selon les conditions et le groupe, le séjour pourra inclure la montagne de Chabre, le col de Perty, les gorges de la Nesque et l’ascension du Mont Ventoux."
 highlights:
-  - "Quatre journées de randonnée variées"
+  - "Quatre journées de randonnée variées, en pleine nature"
   - "Des paysages entre lavande, falaises et sommets"
   - "Deux camps de base de caractère au choix"
   - "Une expérience culinaire chaque soir avec un chef de la région"
-  - "Un séjour à partager entre amis, en groupe de 10 personnes maximum"
+  - "Un séjour à partager entre amis, en groupe de 6 à 10 personnes maximum"
 gallery:
   - src: /assets/img/trek-baronnies-2027/chapelle-baronnies.jpg
     alt: "Chapelle au cœur des Baronnies"
@@ -105,6 +105,7 @@ stays:
     date: "Du 26 au 30 mai 2027"
     price: "950 € / personne"
     meal_plan: "demi-pension"
+    reservation_url: /reservation-baronnies-26-30-mai-2027/
     description: "Une ancienne ferme provençale restaurée au cœur d’un domaine de plus de cent hectares, à proximité de Montbrun-les-Bains. Sentiers, chênes, piscine et grands espaces composent un lieu propice au partage."
     images:
       - src: /assets/img/trek-baronnies-2027/done-domaine.jpg

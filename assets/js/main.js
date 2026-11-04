@@ -83,6 +83,7 @@ function setupActiveNav() {
         "trek-baronnies-2027": "treks",
         "baronnies-2027": "treks",
         "reservation-baronnies-19-23-mai-2027": "treks",
+        "reservation-baronnies-26-30-mai-2027": "treks",
         "formation-orientation": "preparer-un-objectif",
         "preparation-physique-trek": "preparer-un-objectif",
         "observation-marmottes": "decouverte-du-patrimoine",

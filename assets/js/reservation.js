@@ -7,12 +7,13 @@
         if (!form.reportValidity()) return;
 
         const data = new FormData(form);
+        const dates = form.dataset.reservationDates;
         const questions = String(data.get("questions") || "").trim() || "Aucune question pour le moment.";
-        const subject = "Inscription - Trek des Baronnies - 19 au 23 mai 2027";
+        const subject = `Inscription - Trek des Baronnies - ${dates}`;
         const body = [
             "Bonjour,",
             "",
-            "Je suis intéressé par le trek des Baronnies du 19 au 23 mai 2027.",
+            `Je suis intéressé par le trek des Baronnies du ${dates}.`,
             "",
             `Nom : ${String(data.get("lastName") || "").trim()}`,
             `Prénom : ${String(data.get("firstName") || "").trim()}`,
