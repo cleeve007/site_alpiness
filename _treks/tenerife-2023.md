@@ -16,8 +16,8 @@ summary: "Une île volcanique et contrastée, entre ravins, sommet du Teide, for
 card_summary: "Trois grands secteurs naturels, du ravin de Masca au Teide et aux forêts d’Anaga."
 duration: "6 jours"
 duration_days: 6
-level_label: "À confirmer"
-filter_level: unknown
+level: 3
+filter_level: "3"
 season: autumn
 season_label: "Automne"
 hero:
@@ -34,7 +34,8 @@ facts:
   - label: "Séjour"
     value: "6 jours"
   - label: "Niveau"
-    value: "Information à confirmer"
+    value: "3 / 5 · Pour randonneurs habitués aux longues journées et aux dénivelés plus importants"
+    level: 3
   - label: "Point culminant envisagé"
     value: "Pico del Teide · 3 718 m"
 introduction:
@@ -48,6 +49,7 @@ highlights:
   - "L’ascension du Teide par Montaña Blanca"
   - "Les forêts et sentiers du massif d’Anaga"
   - "Le patrimoine colonial de La Laguna"
+  - "Une magnifique Hacienda au bord de l’eau pour camp de base"
 practical_kicker: "Projet déjà réalisé"
 practical_title: "Repères de l’itinéraire"
 practical:

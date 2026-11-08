@@ -16,8 +16,8 @@ summary: "Quatre randonnées pour découvrir des lacs glaciaires, le cirque de G
 card_summary: "Un séjour entre Cauterets, Gavarnie et le Pic du Midi, au cœur des grands paysages pyrénéens."
 duration: "5 jours"
 duration_days: 5
-level_label: "2 à 4/5"
-filter_level: mixed
+level: 2
+filter_level: "2"
 season: spring
 season_label: "Printemps"
 hero:
@@ -34,9 +34,10 @@ facts:
   - label: "Randonnée"
     value: "4 jours"
   - label: "Niveau"
-    value: "De 2 à 4 / 5 selon les journées"
+    value: "2 / 5 · Pour randonneurs occasionnels en bonne condition physique"
+    level: 2
   - label: "Formule"
-    value: "Deux hébergements"
+    value: "Deux hébergements avec des sorties en étoile"
 introduction:
   kicker: "Des sites naturels emblématiques"
   title: "Quatre journées au paradis des randonneurs"
@@ -54,7 +55,7 @@ practical:
   - label: "Hébergement"
     value: "Une nuit à Cauterets puis trois nuits à La Grange aux Marmottes à Viscos."
   - label: "Randonnées"
-    value: "Quatre parcours de 10 à 13,2 km, avec des niveaux annoncés de 2 à 4 sur 5."
+    value: "Quatre boucles de 10 à 15 km et, en moyenne, ± 1 000 m de dénivelé."
   - label: "Point haut"
     value: "Pic du Midi de Bigorre, 2 854 m, avec une variante au col des Laquets."
 cta:
