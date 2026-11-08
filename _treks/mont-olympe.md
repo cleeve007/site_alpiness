@@ -1,7 +1,7 @@
 ---
 title: "Le Mont Olympe"
 seo_title: "Trek au Mont Olympe - Refuges et sommets de Grèce"
-seo_description: "Découvrez un trek de 6 jours au Mont Olympe, avec 4 jours de randonnée entre les gorges d’Enipea, les refuges d’altitude et les sommets grecs."
+seo_description: "Découvrez un trek de 6 jours au Mont Olympe, avec 5 jours de randonnée entre les gorges d’Enipea, les refuges d’altitude et les sommets grecs."
 og_title: "Trek au Mont Olympe - Refuges et sommets"
 permalink: /treks/mont-olympe/
 redirect_from:
@@ -15,8 +15,8 @@ summary: "Une aventure alpine entre les gorges d’Enipea, les refuges d’altit
 card_summary: "Un trek engagé entre mer Égée, gorges boisées, refuges d’altitude et sommets mythiques."
 duration: "6 jours"
 duration_days: 6
-level_label: "À confirmer"
-filter_level: unknown
+level: 4
+filter_level: "4"
 season: autumn
 season_label: "Automne"
 hero:
@@ -31,27 +31,28 @@ facts:
   - label: "Séjour réalisé"
     value: "6 jours"
   - label: "Randonnée"
-    value: "4 jours dont 3 en itinérance"
+    value: "5 jours dont 3 en itinérance"
   - label: "Niveau"
-    value: "Information à confirmer"
+    value: "4 / 5 · Sportif, avec une pratique régulière de la randonnée ou d’un sport d’endurance"
+    level: 4
   - label: "Point culminant envisagé"
     value: "Mytikas · 2 912 m"
 introduction:
   kicker: "Entre mythologie et haute montagne"
   title: "Des gorges d’Enipea aux sommets de l’Olympe"
   paragraphs:
-    - "Le parcours démarrait à Litochoro avant de suivre le GR E4 vers les refuges d’altitude. Une journée d’approche, trois jours itinérants et plusieurs options de sommet permettaient d’adapter l’aventure aux conditions."
+    - "Le parcours démarrait à Litochoro avant de suivre le GR E4 vers les refuges d’altitude. Deux journées d’approche, trois jours itinérants et plusieurs options de sommet permettaient d’adapter l’aventure aux conditions."
     - "Le choix du sommet et de l’itinéraire final dépendait de la météo, du terrain et des recommandations des gardiens de refuge."
 highlights:
-  - "Les gorges d’Enipea et leurs ponts de bois"
-  - "Deux nuits dans des refuges d’altitude"
-  - "Le plateau des Muses et les grands sommets grecs"
-  - "Une approche adaptable avec une variante plus légère"
+  - "Les gorges d’Enipea, leurs cascades et le vieux monastère d’Agios Dionysios"
+  - "Deux nuits en refuge d’altitude : Spilios Agapitos et Apostolidis"
+  - "Le plateau des Muses et les grands sommets de l’Olympe"
+  - "De belles randonnées d’approche et l’un des sommets de la crête sommitale"
 practical_kicker: "Projet déjà réalisé"
 practical_title: "Repères de l’itinéraire"
 practical:
   - label: "Hébergement"
-    value: "Camp de base au bord de la mer Égée puis deux nuits en dortoir dans les refuges."
+    value: "Trois nuits dans un hôtel deux étoiles au bord de la mer Égée, puis deux nuits en dortoir dans les refuges."
   - label: "Étape majeure"
     value: "Une longue montée vers le refuge Spilios Agapitos à 2 060 m."
   - label: "Sécurité"
@@ -59,7 +60,7 @@ practical:
 cta:
   kicker: "Cette aventure vous inspire ?"
   title: "Organisons un trek similaire"
-  text: "Les prochaines dates et le niveau restent à définir. Contactez-moi pour étudier un projet adapté."
+  text: "Les prochaines dates restent à définir. Contactez-moi pour étudier un projet adapté."
   label: "Organiser un trek similaire"
   url: /contact
 ---
