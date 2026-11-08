@@ -52,7 +52,7 @@ practical_kicker: "Projet déjà réalisé"
 practical_title: "Repères de l’itinéraire"
 practical:
   - label: "Hébergement"
-    value: "Trois nuits dans un hôtel deux étoiles au bord de la mer Égée, puis deux nuits en dortoir dans les refuges."
+    value: "Trois nuits dans un hôtel quatre étoiles au bord de la mer Égée, puis deux nuits en dortoir dans les refuges."
   - label: "Étape majeure"
     value: "Une longue montée vers le refuge Spilios Agapitos à 2 060 m."
   - label: "Sécurité"
