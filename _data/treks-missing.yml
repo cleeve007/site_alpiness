@@ -15,7 +15,6 @@ mont-olympe:
   - taille du groupe
 pays-basque:
   - prochaine date
-  - niveau sur 5
   - prix actuel
   - taille du groupe
 grands-sites-pyrenees:
@@ -24,6 +23,5 @@ grands-sites-pyrenees:
   - taille du groupe
 tenerife-volcanique:
   - prochaine date
-  - niveau sur 5
   - prix actuel
   - taille du groupe
