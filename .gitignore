@@ -1,3 +1,30 @@
+# Dépendances et sorties de génération
+node_modules/
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Aperçus, exports et fichiers de travail locaux
+tmp/
+work/
+*.log
+
+# Secrets et configuration locale (le dépôt est public)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Éditeurs et système
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
 .vs/
 bin/
 obj/
@@ -5,3 +32,6 @@ obj/
 *.suo
 *.userosscache
 *.sln.docstates
+
+# Fichiers techniques temporaires de Codex
+.codex-*
