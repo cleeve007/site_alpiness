@@ -5,6 +5,7 @@ lang: fr-FR
 
 plugins:
   - jekyll-redirect-from
+  - jekyll-sitemap
 
 collections:
   treks:

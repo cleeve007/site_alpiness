@@ -1,0 +1,69 @@
+{% assign seo_title = page.seo_title | default: page.title | default: site.title %}
+{% assign seo_description = page.seo_description | default: site.description %}
+{% assign seo_canonical_path = page.canonical_path | default: page.url %}
+{% assign seo_canonical_url = seo_canonical_path | absolute_url %}
+{% assign seo_image = page.og_image | default: '/assets/img/hero.jpg' %}
+{% assign seo_image_url = seo_image | absolute_url %}
+{% assign seo_image_alt = page.og_image_alt | default: 'Randonnée accompagnée en montagne avec Alpiness en Oisans' %}
+<title>{{ seo_title | escape }}</title>
+<meta name="description" content="{{ seo_description | escape }}">
+{% if page.noindex %}<meta name="robots" content="noindex, follow">{% else %}<meta name="robots" content="index, follow, max-image-preview:large">{% endif %}
+<link rel="canonical" href="{{ seo_canonical_url }}">
+<meta property="og:title" content="{{ page.og_title | default: seo_title | escape }}">
+<meta property="og:description" content="{{ page.og_description | default: seo_description | escape }}">
+<meta property="og:url" content="{{ seo_canonical_url }}">
+<meta property="og:site_name" content="Alpiness en Oisans">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:type" content="website">
+<meta property="og:image" content="{{ seo_image_url }}">
+<meta property="og:image:alt" content="{{ seo_image_alt | escape }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page.og_title | default: seo_title | escape }}">
+<meta name="twitter:description" content="{{ page.og_description | default: seo_description | escape }}">
+<meta name="twitter:image" content="{{ seo_image_url }}">
+{% include site-icons.html %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": {{ seo_title | jsonify }},
+  "description": {{ seo_description | jsonify }},
+  "url": {{ seo_canonical_url | jsonify }},
+  "inLanguage": "fr-FR",
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://alpinessenoisans.com/#website",
+    "name": "Alpiness en Oisans",
+    "url": "https://alpinessenoisans.com/"
+  }
+}
+</script>
+{% if page.is_home %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://alpinessenoisans.com/#website",
+      "url": "https://alpinessenoisans.com/",
+      "name": "Alpiness en Oisans",
+      "alternateName": "Alpiness",
+      "inLanguage": "fr-FR"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://alpinessenoisans.com/#organization",
+      "name": "Alpiness en Oisans",
+      "url": "https://alpinessenoisans.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://alpinessenoisans.com/assets/img/logo.png",
+        "width": 530,
+        "height": 530
+      }
+    }
+  ]
+}
+</script>
+{% endif %}
