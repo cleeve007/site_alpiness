@@ -30,7 +30,7 @@
   {% if seo_description %}<meta name="twitter:description" content="{{ seo_description | escape }}">{% endif %}
   {% if page.hero.image %}<meta name="twitter:image" content="{{ og_image_url }}">{% endif %}
   <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
-  <link rel="icon" href="{{ '/assets/img/favicon-64.png' | relative_url }}">
+  {% include site-icons.html %}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",

@@ -39,6 +39,14 @@ function frontMatterValue(source, key) {
 
 const files = await walk(root);
 
+for (const requiredFile of ["favicon.ico", "apple-touch-icon.png", "assets/img/favicon-96.png"]) {
+  try {
+    await fs.access(path.join(root, ...requiredFile.split("/")));
+  } catch {
+    errors.push(`${requiredFile} : icône publique manquante`);
+  }
+}
+
 for (const file of files) {
   const name = path.basename(file).toLowerCase();
   const extension = path.extname(name);

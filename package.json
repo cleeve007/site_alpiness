@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "npx serve . -l 8080",
-    "check": "node scripts/check-repository.mjs"
+    "check": "node scripts/check-repository.mjs",
+    "seo:check": "node scripts/audit-seo.mjs"
   }
 }

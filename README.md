@@ -36,6 +36,12 @@ npm start
 `npm run check` vérifie notamment les données principales des treks, les références
 vers les fichiers de `assets/` et la présence accidentelle de fichiers sensibles.
 
+Après une génération Jekyll, l’audit des métadonnées de toutes les pages se lance avec :
+
+```powershell
+npm run seo:check -- _site
+```
+
 ## Dépôt public
 
 Tout fichier suivi par Git est visible publiquement. Ne jamais ajouter :
