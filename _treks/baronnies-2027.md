@@ -16,8 +16,8 @@ card_summary: "Quatre jours de randonnée entre lavande, falaises et sommets au 
 card_date: "19-23 ou 26-30 mai 2027"
 duration: "4 jours"
 duration_days: 4
-level: 3
-filter_level: "3"
+level: 2
+filter_level: "2"
 season: spring
 season_label: "Printemps"
 card_price: "À partir de 880 € / pers."
@@ -37,8 +37,8 @@ facts:
   - label: "Randonnée"
     value: "4 jours · environ 25 km-effort par jour"
   - label: "Niveau requis"
-    value: "3 / 5 · Débutant en bonne forme physique"
-    level: 3
+    value: "2 / 5 · Pour randonneurs occasionnels en bonne condition physique"
+    level: 2
   - label: "Formule"
     value: "Randonnée en étoile à partir du camp de base"
 introduction:
@@ -124,7 +124,7 @@ practical:
   - label: "Organisation"
     value: "Quatre jours de randonnée et quatre nuits dans le camp de base retenu."
   - label: "Niveau"
-    value: "3/5 · Débutant en bonne forme physique. Le programme sera adapté au groupe."
+    value: "2/5 · Pour randonneurs occasionnels en bonne condition physique. Le programme sera adapté au groupe."
   - label: "Groupe"
     value: "De 6 à 10 personnes."
 cta:
